@@ -195,11 +195,13 @@
   .theme-toggle { flex:0 0 36px; width:36px; height:36px; padding:.4rem; justify-content:center; }
   .hero { min-height:min(760px,100svh); padding:5rem 1rem 3rem; }
   .hero-copy { width:min(100%,32rem); }
-  .hero h1 { font-size:clamp(2.25rem,12vw,3.25rem); overflow-wrap:anywhere; }
+  .hero h1 { font-size:clamp(1.9rem,9.5vw,2.7rem); overflow-wrap:anywhere; }
   .hero { min-height:min(680px,92svh); padding:4.5rem .85rem 2rem; }
   .hero-island { width:min(280px,76vw); height:80px; bottom:10px; }
   .hero-island:before { top:76px; width:118px; height:62px; }
   .avatar-hero { left:calc(50% - 104px); bottom:58px; transform:scale(.78); }
+  .hero .avatar-hero.motion-ready:not(.motion-visible) { transform:translate3d(0,16px,0) scale(.78); }
+  .hero .avatar-hero.motion-ready.motion-visible { transform:scale(.78); }
   .far-island-one,.far-island-two,.far-island-three { opacity:.5; }
 
   .checkpoint.island-one,.checkpoint.island-two,.checkpoint.island-three,.checkpoint.island-four,.checkpoint.island-five {
@@ -237,13 +239,20 @@
   .checkpoint-card li { overflow-wrap:anywhere; }
   .checkpoint-card .fold-body { padding-inline:.5rem; }
   .checkpoint-card .card-head { gap:.25rem; }
-  .checkpoint-card .card-head h2 { font-size:clamp(1.25rem,7vw,1.5rem); }
+  .checkpoint-card .card-head h2 { font-size:clamp(1.05rem,5vw,1.3rem); line-height:1.2; }
+  #checkpoint-1 .card-head h2,#checkpoint-2 .card-head h2,#checkpoint-3 .card-head h2,#checkpoint-4 .card-head h2,#checkpoint-5 .card-head h2 { font-size:clamp(1.05rem,5vw,1.3rem); line-height:1.2; }
+  .checkpoint-card .card-copy,
+  .checkpoint-card p:not(.card-kicker):not(.card-subtitle) { font-size:.78rem; line-height:1.45; }
+  #checkpoint-3 .card-subtitle { font-size:.76rem; line-height:1.45; }
   .checkpoint-card .fold > summary { gap:.4rem; padding:.65rem .55rem; }
   .checkpoint-card .fold > summary { flex-wrap:wrap; }
   .checkpoint-card .fold-title { flex:1 1 145px; min-width:0; }
   .checkpoint-card .fold-meta { margin-left:auto; }
 
-  #checkpoint-1 .about-top,
+  #checkpoint-1 .about-top { grid-template-columns:84px minmax(0,1fr); align-items:start; gap:.7rem; }
+  #checkpoint-1 .about-top > div:last-child { min-width:0; }
+  #checkpoint-1 .about-top .card-copy { margin-top:0; font-size:.78rem; line-height:1.45; }
+  #checkpoint-1 .photo-slot { width:84px; max-width:84px; }
   #checkpoint-1 .two-col,
   #checkpoint-2 .community-panels,
   #checkpoint-2 .org-list,
@@ -253,8 +262,6 @@
   #checkpoint-5 .contact-card .contact-links {
     grid-template-columns:minmax(0,1fr);
   }
-  #checkpoint-1 .about-top { justify-items:stretch; }
-  #checkpoint-1 .photo-slot { width:min(100%,220px); }
   #checkpoint-4 .project-gallery-card.proj,
   #checkpoint-4 .project-gallery-card.project-gallery-feature.proj {
     height:auto;
@@ -273,6 +280,22 @@
   #checkpoint-4 .project-gallery { align-items:flex-start; }
   #checkpoint-5 .contact-fold > summary { padding-right:.65rem; }
   #checkpoint-3 .adventure-options { grid-template-columns:minmax(0,1fr); }
+  #checkpoint-3 .adventure-option { min-height:44px; padding:.5rem .65rem; }
+  #checkpoint-3 .adventure-option b { font-size:.78rem; }
+  #checkpoint-3 .adventure-option small { font-size:.68rem; }
+  #checkpoint-2 .community-options { gap:.3rem; }
+  #checkpoint-2 .community-option { min-width:0; padding:.4rem .25rem; font-size:.72rem; overflow-wrap:anywhere; }
+  #checkpoint-2 .community-option small { font-size:.62rem; }
+  #checkpoint-2 .community-panel .roles > span,
+  #checkpoint-3 .adventure-events .ev *,
+  #checkpoint-4 .proj > *,
+  #checkpoint-5 .contact-card .tile * {
+    min-width:0;
+    max-width:100%;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+  #checkpoint-5 .contact-card .tile b { font-size:.76rem; line-height:1.35; }
   #checkpoint-5 .flower-garden {
     display:grid;
     grid-template-columns:minmax(0,1fr);
@@ -303,6 +326,20 @@
 }
 @media(prefers-reduced-motion:reduce) {
   .hero-copy.motion-ready,.avatar-hero.motion-ready,.checkpoint .checkpoint-card.motion-ready { transform:none; filter:none; }
+  .hero .avatar-hero.motion-ready { transform:none; }
+}
+
+/* Keep every checkpoint symbol the same size on desktop and phones. */
+.checkpoint-nav .checkpoint-link .nav-dot,
+.checkpoint-nav .checkpoint-link.is-active .nav-dot {
+  display:inline-grid;
+  flex:0 0 1.5rem;
+  width:1.5rem;
+  height:1.5rem;
+  place-items:center;
+  font-family:"Nunito",sans-serif;
+  font-size:.85rem;
+  line-height:1;
 }
 
 /* Final dark-theme contrast pass for text and small colored controls. */
