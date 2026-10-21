@@ -501,7 +501,7 @@ main {
 }
 
 /* Restore the wide, even social buttons on phones and keep checkpoint labels small. */
-@media(max-width:700px) {
+@media(max-width:700px), (max-device-width:700px) {
   #checkpoint-1 .card-head .card-kicker,
   #checkpoint-2 .card-head .card-kicker,
   #checkpoint-3 .card-head .card-kicker,
@@ -519,6 +519,11 @@ main {
     gap:.5rem;
     width:100%;
     align-items:stretch;
+  }
+  #checkpoint-5 .contact-fold .fold-body {
+    width:100%;
+    max-width:none;
+    box-sizing:border-box;
   }
   #checkpoint-5 .contact-card .contact-links > .tile:nth-child(-n+3) {
     grid-column:1/-1;
@@ -542,6 +547,9 @@ main {
     overflow-wrap:anywhere;
     word-break:normal;
   }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(3) b {
+    white-space:normal;
+  }
   #checkpoint-5 .contact-card .contact-links > .tile:nth-child(4),
   #checkpoint-5 .contact-card .contact-links > .tile:nth-child(5),
   #checkpoint-5 .contact-card .contact-links > .tile:nth-child(6) {
@@ -552,6 +560,7 @@ main {
     align-items:center;
     min-width:0;
     min-height:64px;
+    width:100%;
     padding:.65rem .25rem;
     border:1.5px solid color-mix(in srgb,var(--orange) 42%,var(--line));
     border-radius:13px;
