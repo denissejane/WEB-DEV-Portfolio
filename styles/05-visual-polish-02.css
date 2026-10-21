@@ -507,7 +507,7 @@ main {
   #checkpoint-3 .card-head .card-kicker,
   #checkpoint-4 .card-head .card-kicker,
   #checkpoint-5 .card-head .card-kicker {
-    font-size:clamp(.32rem,1.25vw,.4rem);
+    font-size:clamp(.38rem,1.5vw,.46rem);
     line-height:1.45;
     letter-spacing:.02em;
   }
@@ -515,7 +515,10 @@ main {
   #checkpoint-5 .contact-card .contact-links {
     display:grid;
     grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:.55rem;
+    grid-auto-flow:row;
+    gap:.5rem;
+    width:100%;
+    align-items:stretch;
   }
   #checkpoint-5 .contact-card .contact-links > .tile:nth-child(-n+3) {
     grid-column:1/-1;
@@ -523,9 +526,13 @@ main {
     flex-direction:row;
     align-items:center;
     width:100%;
+    min-height:64px;
     min-width:0;
     box-sizing:border-box;
   }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(1) { grid-row:1; }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(2) { grid-row:2; }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(3) { grid-row:3; }
   #checkpoint-5 .contact-card .contact-links > .tile:nth-child(-n+3) > span {
     flex:1 1 auto;
     min-width:0;
@@ -539,6 +546,7 @@ main {
   #checkpoint-5 .contact-card .contact-links > .tile:nth-child(5),
   #checkpoint-5 .contact-card .contact-links > .tile:nth-child(6) {
     grid-column:span 1;
+    grid-row:4;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -550,6 +558,9 @@ main {
     background:color-mix(in srgb,var(--peach) 28%,var(--card));
     box-shadow:0 3px 0 color-mix(in srgb,var(--orange) 24%,transparent);
   }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(4) { grid-column:1; }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(5) { grid-column:2; }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(6) { grid-column:3; }
   #checkpoint-5 .contact-card .contact-links > .tile:nth-child(n+4):nth-child(-n+6) > i {
     display:grid;
     place-items:center;
