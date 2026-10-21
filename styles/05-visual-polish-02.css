@@ -203,6 +203,8 @@
   .hero .avatar-hero.motion-ready:not(.motion-visible) { transform:translate3d(0,16px,0) scale(.78); }
   .hero .avatar-hero.motion-ready.motion-visible { transform:scale(.78); }
   .far-island-one,.far-island-two,.far-island-three { opacity:.5; }
+  #home .sparkle,#home .code-doodle,#home .cloud,#home .sun,#home .far-island { display:none; }
+  .world-decor { display:none; }
 
   .checkpoint.island-one,.checkpoint.island-two,.checkpoint.island-three,.checkpoint.island-four,.checkpoint.island-five {
     grid-template-columns:minmax(0,1fr);
@@ -241,17 +243,28 @@
   .checkpoint-card .card-head { gap:.25rem; }
   .checkpoint-card .card-head h2 { font-size:clamp(1.05rem,5vw,1.3rem); line-height:1.2; }
   #checkpoint-1 .card-head h2,#checkpoint-2 .card-head h2,#checkpoint-3 .card-head h2,#checkpoint-4 .card-head h2,#checkpoint-5 .card-head h2 { font-size:clamp(1.05rem,5vw,1.3rem); line-height:1.2; }
+  .checkpoint-card { font-size:.74rem; line-height:1.45; }
+  .checkpoint-card .card-kicker { font-size:.55rem; line-height:1.45; }
   .checkpoint-card .card-copy,
-  .checkpoint-card p:not(.card-kicker):not(.card-subtitle) { font-size:.78rem; line-height:1.45; }
+  .checkpoint-card p:not(.card-kicker):not(.card-subtitle) { font-size:.74rem; line-height:1.45; }
+  .checkpoint-card .org b,.checkpoint-card .ev b,.checkpoint-card .proj h3 { font-size:.76rem; line-height:1.35; }
+  .checkpoint-card .org .roles span,.checkpoint-card .ev span,.checkpoint-card .ev em,.checkpoint-card .proj small { font-size:.68rem; line-height:1.4; }
+  .checkpoint-card .subcard-head b,.checkpoint-card .group > h4 { font-size:.74rem; line-height:1.35; }
+  #checkpoint-1 .enjoyment-fold .plain { font-size:.72rem; line-height:1.4; }
+  #checkpoint-1 .education-fold .roles span { font-size:.68rem; line-height:1.4; }
+  .checkpoint-card .fold-title { font-size:.82rem; }
+  .checkpoint-card .fold-meta { font-size:.64rem; }
   #checkpoint-3 .card-subtitle { font-size:.76rem; line-height:1.45; }
   .checkpoint-card .fold > summary { gap:.4rem; padding:.65rem .55rem; }
   .checkpoint-card .fold > summary { flex-wrap:wrap; }
   .checkpoint-card .fold-title { flex:1 1 145px; min-width:0; }
   .checkpoint-card .fold-meta { margin-left:auto; }
 
-  #checkpoint-1 .about-top { grid-template-columns:84px minmax(0,1fr); align-items:start; gap:.7rem; }
-  #checkpoint-1 .about-top > div:last-child { min-width:0; }
-  #checkpoint-1 .about-top .card-copy { margin-top:0; font-size:.78rem; line-height:1.45; }
+  #checkpoint-1 .about-top { grid-template-columns:84px minmax(0,1fr); grid-template-rows:auto auto; align-items:start; gap:.7rem; }
+  #checkpoint-1 .about-top > div:last-child { display:contents; }
+  #checkpoint-1 .about-top .card-copy { grid-column:2; grid-row:1; min-width:0; margin-top:0; font-size:.74rem; line-height:1.45; }
+  #checkpoint-1 .about-top .detail-chips { grid-column:1/-1; grid-row:2; display:flex; flex-wrap:wrap; min-width:0; gap:.35rem; }
+  #checkpoint-1 .about-top .detail-chips span { min-width:0; max-width:100%; font-size:.68rem; line-height:1.35; overflow-wrap:anywhere; }
   #checkpoint-1 .photo-slot { width:84px; max-width:84px; }
   #checkpoint-1 .two-col,
   #checkpoint-2 .community-panels,
@@ -278,11 +291,13 @@
   #checkpoint-4 .project-side-stack .project-stack-item { flex:0 0 auto; min-height:150px; overflow:visible; }
   #checkpoint-4 .project-feature .proj-img { grid-column:1; }
   #checkpoint-4 .project-gallery { align-items:flex-start; }
-  #checkpoint-5 .contact-fold > summary { padding-right:.65rem; }
-  #checkpoint-3 .adventure-options { grid-template-columns:minmax(0,1fr); }
-  #checkpoint-3 .adventure-option { min-height:44px; padding:.5rem .65rem; }
-  #checkpoint-3 .adventure-option b { font-size:.78rem; }
-  #checkpoint-3 .adventure-option small { font-size:.68rem; }
+  #checkpoint-5 .contact-fold > summary { padding-right:8.4rem; }
+  #checkpoint-5 .resume-download { position:absolute; top:.42rem; right:.45rem; width:auto; min-height:30px; margin:0; padding:.3rem .42rem; gap:.25rem; font-size:.64rem; }
+  #checkpoint-3 .adventure-options { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.4rem; }
+  #checkpoint-3 .adventure-option { min-height:44px; gap:.3rem; padding:.45rem .5rem; }
+  #checkpoint-3 .adventure-option > span { width:24px; height:24px; }
+  #checkpoint-3 .adventure-option b { font-size:.72rem; }
+  #checkpoint-3 .adventure-option small { margin-left:auto; font-size:.62rem; }
   #checkpoint-2 .community-options { gap:.3rem; }
   #checkpoint-2 .community-option { min-width:0; padding:.4rem .25rem; font-size:.72rem; overflow-wrap:anywhere; }
   #checkpoint-2 .community-option small { font-size:.62rem; }
@@ -295,7 +310,7 @@
     white-space:normal;
     overflow-wrap:anywhere;
   }
-  #checkpoint-5 .contact-card .tile b { font-size:.76rem; line-height:1.35; }
+  #checkpoint-5 .contact-card .tile b { font-size:.7rem; line-height:1.35; }
   #checkpoint-5 .flower-garden {
     display:grid;
     grid-template-columns:minmax(0,1fr);
@@ -315,6 +330,21 @@
     width:100%;
   }
   #checkpoint-5 .flower-garden .garden-picker button { flex:0 0 38px; width:38px; height:38px; }
+}
+
+/* Keep desktop contact cards roomy and place the three social links on one row. */
+@media(min-width:701px) {
+  #checkpoint-5 .contact-card .contact-links { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(1),
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(2),
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(3) { grid-row:1; min-width:0; }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(3) { grid-column:3; }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(n+4) { grid-row:2; width:100%; min-width:0; justify-content:center; }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(4) { grid-column:1; }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(5) { grid-column:2; }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(6) { grid-column:3; }
+  #checkpoint-5 .contact-card .contact-links > .tile > span { min-width:0; }
+  #checkpoint-5 .contact-card .contact-links > .tile b { overflow-wrap:anywhere; }
 }
 
 @media(max-width:380px) {
