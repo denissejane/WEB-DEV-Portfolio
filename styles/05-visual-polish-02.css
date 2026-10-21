@@ -502,25 +502,43 @@ main {
 
 /* Restore the wide, even social buttons on phones and keep checkpoint labels small. */
 @media(max-width:700px) {
-  .checkpoint-card .card-kicker {
-    font-size:clamp(.4rem,1.8vw,.46rem);
+  #checkpoint-1 .card-head .card-kicker,
+  #checkpoint-2 .card-head .card-kicker,
+  #checkpoint-3 .card-head .card-kicker,
+  #checkpoint-4 .card-head .card-kicker,
+  #checkpoint-5 .card-head .card-kicker {
+    font-size:clamp(.32rem,1.25vw,.4rem);
     line-height:1.45;
-    letter-spacing:.035em;
+    letter-spacing:.02em;
   }
 
   #checkpoint-5 .contact-card .contact-links {
     display:grid;
-    grid-template-columns:repeat(6,minmax(0,1fr));
+    grid-template-columns:repeat(3,minmax(0,1fr));
     gap:.55rem;
   }
   #checkpoint-5 .contact-card .contact-links > .tile:nth-child(-n+3) {
     grid-column:1/-1;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    width:100%;
     min-width:0;
+    box-sizing:border-box;
+  }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(-n+3) > span {
+    flex:1 1 auto;
+    min-width:0;
+  }
+  #checkpoint-5 .contact-card .contact-links > .tile:nth-child(-n+3) b {
+    max-width:100%;
+    overflow-wrap:anywhere;
+    word-break:normal;
   }
   #checkpoint-5 .contact-card .contact-links > .tile:nth-child(4),
   #checkpoint-5 .contact-card .contact-links > .tile:nth-child(5),
   #checkpoint-5 .contact-card .contact-links > .tile:nth-child(6) {
-    grid-column:span 2;
+    grid-column:span 1;
     display:flex;
     justify-content:center;
     align-items:center;
