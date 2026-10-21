@@ -10,6 +10,14 @@
 
 ---
 
+## 🌐 Live Site
+
+👉 [Click here to view my e-Portfolio](https://denissejane.github.io/WEB-DEV-Portfolio/)
+
+_Deployed via GitHub Pages_
+
+---
+
 ## 📌 Overview
 
 Den’s World is my midterm activity for Comp 016 - Web Development. I started with my first activity, a web-based resume, and grew it into a little interactive world that shares more about me.
