@@ -1,0 +1,267 @@
+/* 01-foundation-04.css: foundation styles, continued in cascade order. */
+.glasses {
+  left: 5px;
+  top: 13px;
+  width: 12px;
+  height: 9px;
+  border: 2px solid #4a4143;
+  border-radius: 4px;
+  z-index: 2;
+}
+.glasses:before {
+  left: 12px;
+  width: 12px;
+  height: 9px;
+}
+.glasses:after {
+  top: 15px;
+  left: 12px;
+  width: 5px;
+}
+.eye {
+  position: absolute;
+  z-index: 1;
+  top: 17px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #493b3c;
+}
+.eye-left {
+  left: 10px;
+}
+.eye-right {
+  right: 8px;
+}
+.blush {
+  position: absolute;
+  z-index: 1;
+  top: 25px;
+  width: 7px;
+  height: 4px;
+  border-radius: 50%;
+  background: #e98d87;
+  opacity: 0.75;
+}
+.blush-left {
+  left: 4px;
+}
+.blush-right {
+  right: 4px;
+}
+.smile {
+  left: 16px;
+  top: 29px;
+  width: 7px;
+  height: 4px;
+  border-bottom: 2px solid #a85853;
+  border-radius: 50%;
+  z-index: 1;
+}
+.avatar-neck {
+  position: absolute;
+  top: 47px;
+  left: 34px;
+  width: 13px;
+  height: 12px;
+  background: #e9a77d;
+}
+.avatar-body {
+  width: 46px;
+  height: 45px;
+  left: 18px;
+  top: 54px;
+  background: #ed8d71;
+  border-radius: 15px 15px 9px 9px;
+  box-shadow:
+    inset 0 -6px #c96f60,
+    0 5px #b45f50;
+}
+.avatar-arm {
+  position: absolute;
+  left: 57px;
+  top: 65px;
+  width: 13px;
+  height: 23px;
+  background: #f4c19b;
+  border-radius: 8px;
+  transform: rotate(-20deg);
+}
+.checkpoint-nav {
+  gap: clamp(0.45rem, 2vw, 1.4rem);
+}
+.nav-dot {
+  color: #a95339;
+  background: #f7dfc4;
+  font-size: 1rem;
+}
+.checkpoint-link {
+  font-size: 0.84rem;
+}
+.checkpoint {
+  min-height: 640px;
+}
+.checkpoint-card {
+  width: min(520px, 61%);
+  padding: clamp(1.6rem, 4vw, 2.8rem);
+}
+.checkpoint-card h2 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.7rem, 3.3vw, 2.45rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+.card-kicker {
+  font-size: 9px;
+  letter-spacing: 0.06em;
+}
+.card-subtitle {
+  font-size: 1.1rem;
+}
+.card-copy {
+  font-size: 1rem;
+}
+.island-scene {
+  width: clamp(220px, 28vw, 300px);
+  height: clamp(180px, 24vw, 250px);
+  border-radius: 48% 52% 45% 50%;
+}
+.island-one .island-scene {
+  background: #91a879;
+  border-radius: 53% 47% 50% 44%;
+}
+.island-two .island-scene {
+  background: #78968a;
+  border-radius: 40% 60% 48% 52%;
+}
+.island-three .island-scene {
+  background: #b29072;
+  border-radius: 57% 43% 53% 47%;
+}
+.island-four .island-scene {
+  background: #718c91;
+  border-radius: 45% 55% 40% 60%;
+}
+.island-five .island-scene {
+  background: #8f9e79;
+  border-radius: 52% 48% 45% 55%;
+}
+.scene-two .little-tree {
+  color: #486a58;
+}
+.scene-three .little-tree {
+  color: #5e7252;
+}
+.scene-four .little-tree {
+  color: #496c70;
+}
+.scene-five .little-tree {
+  color: #567454;
+}
+.island-three .island-scene:before {
+  content: "〰";
+  position: absolute;
+  z-index: 1;
+  bottom: 18px;
+  left: 35px;
+  color: #dfd09c;
+  font-size: 2.5rem;
+}
+.island-four .island-scene:before {
+  content: "▥";
+  position: absolute;
+  z-index: 1;
+  bottom: 16px;
+  right: 37px;
+  color: #f1ddab;
+  font-size: 2.3rem;
+}
+.island-five .island-scene:before {
+  content: "✦";
+  position: absolute;
+  z-index: 1;
+  top: 30px;
+  right: 50px;
+  color: #fff0da;
+  font-size: 1.4rem;
+}
+.flower-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.2rem 0;
+}
+.flower-tabs a {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #b85e38;
+  background: #fff7ed;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+}
+.flower-tabs a span {
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+.flower-tabs a:hover {
+  background: color-mix(in srgb, var(--peach) 30%, var(--card));
+}
+.community-list {
+  max-height: 420px;
+  overflow: auto;
+  padding-right: 0.25rem;
+}
+.community-list > div {
+  align-items: flex-start;
+}
+.community-list p {
+  line-height: 1.55;
+}
+.memory-grid {
+  gap: 0.7rem;
+}
+.memory-photo {
+  min-height: 140px;
+  border: 1px dashed #b98666;
+  gap: 0.15rem;
+}
+.memory-photo b {
+  font-size: 0.68rem;
+  text-align: center;
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 1.1rem 0;
+}
+.project-card {
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  padding: 0.85rem;
+  background: var(--paper);
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.project-icon {
+  color: var(--orange);
+  font-size: 1.35rem;
+}
+.project-card h3 {
+  font-size: 0.95rem;
+  margin: 0.45rem 0 0.3rem;
+}
+.project-card p {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin: 0.2rem 0 0.8rem;
+}

@@ -1,0 +1,340 @@
+/* 01-foundation-02.css: foundation styles, continued in cascade order. */
+.avatar-body {
+  position: absolute;
+  width: 35px;
+  height: 37px;
+  left: 13px;
+  top: 43px;
+  border-radius: 10px 10px 5px 5px;
+  background: #e87f63;
+  box-shadow: 0 7px #b45f50;
+}
+.checkpoint-nav {
+  position: sticky;
+  z-index: 6;
+  top: 0;
+  min-height: 66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.3rem, 2vw, 1.2rem);
+  padding: 0.6rem 1rem;
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+.nav-caption {
+  color: var(--muted);
+  font-size: 7px;
+  margin-right: 0.25rem;
+}
+.checkpoint-link {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.65rem;
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.78rem;
+  transition: 0.2s;
+}
+.checkpoint-link:hover {
+  background: var(--paper);
+}
+.checkpoint-link.is-active {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--peach) 35%, var(--card));
+}
+.nav-dot {
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: var(--line);
+  font-size: 0.72rem;
+}
+.is-active .nav-dot {
+  color: #fff;
+  background: var(--orange);
+}
+.world {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem clamp(1rem, 5vw, 4rem) 3rem;
+  overflow: hidden;
+}
+.pathway {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 4%;
+  bottom: 4%;
+  width: 150px;
+  border-left: 5px dashed #d4aa7d;
+  border-radius: 50%;
+  transform: translateX(-50%) rotate(8deg);
+  opacity: 0.75;
+}
+.path-dash {
+  position: absolute;
+  left: -14px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--yellow);
+  border: 4px solid var(--paper);
+}
+.path-dash:nth-child(1) {
+  top: 14%;
+}
+.path-dash:nth-child(2) {
+  top: 49%;
+  left: 7px;
+}
+.path-dash:nth-child(3) {
+  top: 81%;
+}
+.checkpoint {
+  min-height: 520px;
+  padding: 5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 5vw, 4rem);
+  position: relative;
+  scroll-margin-top: 75px;
+}
+.checkpoint:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+.checkpoint-card {
+  width: min(470px, 58%);
+  position: relative;
+  z-index: 1;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: clamp(1.25rem, 4vw, 2.2rem);
+  box-shadow: var(--shadow);
+  transition:
+    opacity 0.35s,
+    transform 0.35s;
+}
+.card-kicker {
+  color: var(--orange);
+  font-size: 7px;
+  line-height: 1.8;
+  margin: 0 0 1rem;
+}
+.checkpoint-card h2 {
+  font:
+    clamp(1.15rem, 4vw, 1.7rem)/1.45 "Press Start 2P",
+    monospace;
+  letter-spacing: -0.08em;
+  margin: 0;
+}
+.card-subtitle {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--blue);
+  margin: 0.55rem 0 1rem;
+}
+.card-copy {
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0.6rem 0 1.15rem;
+}
+.detail-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.2rem;
+}
+.detail-chips span {
+  background: color-mix(in srgb, var(--yellow) 25%, var(--card));
+  border: 1px solid var(--line);
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.77rem;
+  font-weight: 700;
+}
+.text-link {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 800;
+}
+.text-link:hover {
+  text-decoration: underline;
+}
+.island-scene {
+  position: relative;
+  width: 240px;
+  height: 200px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--sage);
+  border-top: 18px solid #b3c58a;
+  box-shadow:
+    inset 0 -13px #6f8867,
+    0 15px 0 -3px #b98967,
+    0 25px 25px #5543391a;
+}
+.island-scene:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -62px;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 65px;
+  background: #b98967;
+  clip-path: polygon(0 0, 100% 0, 72% 100%, 27% 100%);
+}
+.scene-two {
+  background: #92a68d;
+  border-color: #c3c28a;
+  transform: translateY(5px);
+}
+.scene-three {
+  background: #73948a;
+  border-color: #bbc28a;
+}
+.scene-four {
+  background: #9aa68b;
+  border-color: #d6bd7f;
+  transform: translateY(-2px);
+}
+.island-cloud {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  color: #fff0da;
+  font-size: 2rem;
+  opacity: 0.9;
+}
+.little-tree {
+  position: absolute;
+  z-index: 1;
+  top: 23px;
+  left: 45px;
+  color: #507251;
+  font-size: 4.6rem;
+  line-height: 1;
+  text-shadow: 3px 3px #405e49;
+}
+.little-flower {
+  position: absolute;
+  z-index: 1;
+  bottom: 34px;
+  right: 45px;
+  color: #ffe39e;
+  font-size: 2rem;
+  text-shadow: 2px 2px #ba8d67;
+}
+.island-one {
+  transform: translateX(-4%);
+}
+.island-two {
+  transform: translateX(4%);
+}
+.island-three {
+  transform: translateX(-4%);
+}
+.island-four {
+  transform: translateX(4%);
+}
+.placeholder-list {
+  display: grid;
+  gap: 0.7rem;
+}
+.placeholder-list > div {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 0.7rem 0.85rem;
+  border-radius: 13px;
+}
+.placeholder-list p {
+  margin: 0;
+  line-height: 1.45;
+}
+.placeholder-list small {
+  color: var(--muted);
+}
+.list-icon {
+  color: var(--orange);
+  font-size: 1.25rem;
+}
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+.memory-photo {
+  aspect-ratio: 1.2;
+  background: #f5c8aa;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #805c50;
+  overflow: hidden;
+}
+.memory-photo span {
+  font-size: 1.6rem;
+}
+.memory-photo small {
+  font-weight: 800;
+  font-size: 0.65rem;
+}
+.memory-blue {
+  background: #c4d6d3;
+  color: #557a95;
+}
+.memory-yellow {
+  background: #f5dfa5;
+}
+.photo-note {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin: 0.6rem 0 0;
+}
+.progress-box {
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.9rem;
+  margin: 1.2rem 0;
+}
+.progress-sparkle {
+  color: var(--orange);
+  font-size: 1.7rem;
+}
+.progress-box > div {
+  flex: 1;
+}
+.progress-track {
+  height: 9px;
+  background: var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 0.45rem 0 0.25rem;
+}
+.progress-track span {
+  display: block;
+  width: 68%;
+  height: 100%;
+  background: var(--sage);
+  border-radius: inherit;
+}

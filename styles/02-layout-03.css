@@ -1,0 +1,160 @@
+/* 02-layout-03.css: layout styles, continued in cascade order. */
+.pathway {
+  border: 0;
+  border-radius: 0;
+  transform: translateX(-50%);
+  opacity: 0.45;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 600' preserveAspectRatio='none'%3E%3Cpath d='M80 0 C20 90 145 145 82 240 S20 390 82 470 S140 540 82 600' fill='none' stroke='%23b98967' stroke-width='4' stroke-dasharray='4 12' stroke-linecap='round'/%3E%3C/svg%3E")
+    center/100% 100% no-repeat;
+}
+.path-dash {
+  display: none;
+}
+.island-one .island-scene {
+  border-radius: 53% 47% 50% 44%;
+  clip-path: none;
+  border: 0;
+}
+.island-two .island-scene {
+  border-radius: 40% 60% 48% 52%;
+  clip-path: none;
+  border: 0;
+}
+.island-three .island-scene {
+  border-radius: 57% 43% 53% 47%;
+  clip-path: none;
+  border: 0;
+}
+.island-four .island-scene {
+  border-radius: 45% 55% 40% 60%;
+  clip-path: none;
+  border: 0;
+}
+.island-five .island-scene {
+  border-radius: 52% 48% 45% 55%;
+  clip-path: none;
+  border: 0;
+}
+.island-one .checkpoint-card {
+  border-top: 5px solid #99aa78;
+}
+.island-two .checkpoint-card {
+  border-top: 5px solid #78a09a;
+}
+.island-three .checkpoint-card {
+  border-top: 5px solid #d19876;
+}
+.island-four .checkpoint-card {
+  border-top: 5px solid #7897aa;
+}
+.island-five .checkpoint-card {
+  border-top: 5px solid #a184a0;
+}
+.checkpoint-card {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    var(--card),
+    color-mix(in srgb, var(--card) 94%, var(--peach))
+  );
+  border-radius: 24px;
+  letter-spacing: 0.005em;
+}
+.checkpoint-card::after {
+  content: "✦";
+  position: absolute;
+  top: 17px;
+  right: 19px;
+  color: var(--yellow);
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+.card-kicker {
+  padding-right: 1.4rem;
+  line-height: 1.8;
+}
+.card-subtitle {
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+}
+.card-copy {
+  max-width: 62ch;
+  line-height: 1.75;
+}
+.community-list {
+  max-height: none;
+  overflow: visible;
+  padding: 0;
+}
+#checkpoint-2 .checkpoint-card {
+  width: min(650px, 66%);
+}
+.placeholder-list > div {
+  min-width: 0;
+  padding: 0.85rem 1rem;
+}
+.placeholder-list p {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+.placeholder-list small {
+  display: inline-block;
+  line-height: 1.5;
+}
+.matcha {
+  left: 18%;
+  bottom: 33px;
+  font-size: 1.35rem;
+  transform: rotate(-8deg);
+  text-shadow: none;
+}
+.orange-charm {
+  left: 32%;
+  top: 37px;
+  font-size: 1.2rem;
+  text-shadow: none;
+}
+.trinket {
+  top: 54px;
+  left: 25%;
+  font-size: 1.25rem;
+  text-shadow: none;
+}
+.island-one .little-tree {
+  color: #496c4d;
+}
+.island-two .little-tree {
+  color: #456c5f;
+}
+.island-three .little-tree {
+  color: #5c6b45;
+}
+.island-four .little-tree {
+  color: #43666b;
+}
+.island-five .little-tree {
+  color: #4c724f;
+}
+.island-two .little-tree {
+  transform: scale(0.82);
+}
+.island-three .little-tree {
+  transform: scale(1.1) rotate(-5deg);
+}
+.island-four .little-tree {
+  transform: scale(0.72);
+}
+.island-five .little-tree {
+  transform: scale(0.9);
+}
+:root[data-theme="dark"] .checkpoint-card {
+  background: linear-gradient(145deg, #2d2a37, #34313e);
+}
+:root[data-theme="dark"] .placeholder-list > div {
+  background: #34313e;
+}
+:root[data-theme="dark"] .flower-tabs a {
+  background: #34313e;
+}
+

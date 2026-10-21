@@ -1,0 +1,267 @@
+/* 03-components-04.css: components styles, continued in cascade order. */
+.pathway {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  transform: none;
+  opacity: 0.9;
+  pointer-events: none;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath d='M450 0 L450 170 C450 184 450 190 500 200 C550 210 550 216 550 230 L550 370 C550 384 550 390 500 400 C450 410 450 416 450 430 L450 570 C450 584 450 590 500 600 C550 610 550 616 550 630 L550 770 C550 784 550 790 500 800 C450 810 450 816 450 830 L450 1000' fill='none' stroke='%23b97e63' stroke-width='6' stroke-dasharray='7 11' stroke-linecap='round'/%3E%3C/svg%3E")
+    center/100% 100% no-repeat;
+}
+.checkpoint::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 35%;
+  width: 10%;
+  border-top: 4px dashed #b97e63;
+  opacity: 0.88;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.island-two::after,
+.island-four::after {
+  left: 55%;
+}
+.path-dash {
+  display: none;
+}
+@media (max-width: 760px) {
+  .checkpoint {
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
+  }
+  .island-two::after,
+  .island-four::after {
+    left: 0;
+  }
+  .checkpoint-card,
+  #checkpoint-2 .checkpoint-card {
+    width: 100%;
+    padding: 1.35rem 1rem 1.25rem 1.35rem;
+  }
+  .island-scene {
+    width: min(210px, 62vw);
+    max-width: none;
+  }
+  .pathway {
+    left: 0;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    opacity: 0.72;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath d='M28 0 C28 220 28 780 28 1000' fill='none' stroke='%23b97e63' stroke-width='20' stroke-dasharray='25 35' stroke-linecap='round'/%3E%3C/svg%3E");
+  }
+  .checkpoint::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: calc(2.25rem + 76px);
+    width: calc(50% - 105px);
+    border-top: 4px dashed #b97e63;
+    opacity: 0.82;
+    pointer-events: none;
+  }
+}
+
+/* One persistent, playful toolbar ties the whole adventure together. */
+html {
+  scroll-padding-top: 88px;
+}
+.topbar {
+  position: sticky;
+  inset: auto;
+  top: 0;
+  height: auto;
+  min-height: 76px;
+  gap: 1rem;
+  padding: 0.55rem clamp(0.7rem, 4vw, 3rem);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+  backdrop-filter: blur(14px);
+}
+.brand {
+  flex: none;
+  color: var(--ink);
+  font-size: 9px;
+  line-height: 1.7;
+}
+.brand span {
+  color: var(--orange);
+}
+.checkpoint-nav {
+  position: static;
+  min-height: 0;
+  flex: 1;
+  width: max-content;
+  max-width: 100%;
+  gap: 0.2rem;
+  padding: 0.34rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--line) 80%, transparent);
+  backdrop-filter: none;
+}
+.checkpoint-link {
+  min-height: 38px;
+  padding: 0.42rem 0.72rem;
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.045em;
+}
+.checkpoint-link:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
+.checkpoint-link.is-active {
+  color: #4a3932;
+  background: var(--yellow);
+  box-shadow: 0 2px 0 #b9894e;
+}
+.theme-toggle {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  justify-content: center;
+  padding: 0.45rem;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: var(--card);
+  box-shadow: 0 3px 0 color-mix(in srgb, var(--line) 80%, transparent);
+}
+.theme-icon {
+  font-size: 1.15rem;
+}
+:root[data-theme="dark"] .topbar {
+  background: color-mix(in srgb, #201f2b 91%, transparent);
+}
+:root[data-theme="dark"] .checkpoint-nav {
+  background: #292735;
+  box-shadow: 0 3px 0 #15141d;
+}
+:root[data-theme="dark"] .checkpoint-link.is-active {
+  background: #f1c36f;
+  color: #382d2a;
+  box-shadow: 0 2px 0 #a57942;
+}
+:root[data-theme="dark"] .theme-toggle {
+  background: #292735;
+  color: #fff0df;
+  box-shadow: 0 3px 0 #15141d;
+}
+
+/* A quiet code-paper texture and small scenery marks continue behind every island. */
+.world::before {
+  background-image:
+    linear-gradient(to right, #557a9515 1px, transparent 1px),
+    linear-gradient(to bottom, #557a9515 1px, transparent 1px),
+    radial-gradient(ellipse at 12% 8%, #fff8df88 0 3%, transparent 23%),
+    radial-gradient(ellipse at 86% 24%, #f8c7ad66 0 4%, transparent 23%),
+    radial-gradient(ellipse at 14% 48%, #f7f3dc99 0 5%, transparent 27%),
+    radial-gradient(ellipse at 90% 72%, #c5d9c488 0 5%, transparent 28%);
+  background-size:
+    34px 34px,
+    34px 34px,
+    auto,
+    auto,
+    auto,
+    auto;
+}
+:root[data-theme="dark"] .world::before {
+  opacity: 0.48;
+  background-image:
+    linear-gradient(to right, #b5d6e522 1px, transparent 1px),
+    linear-gradient(to bottom, #b5d6e522 1px, transparent 1px),
+    radial-gradient(ellipse at 12% 8%, #e3b5a766 0 3%, transparent 23%),
+    radial-gradient(ellipse at 86% 24%, #9e85ba55 0 4%, transparent 23%),
+    radial-gradient(ellipse at 14% 48%, #d6c79755 0 5%, transparent 27%),
+    radial-gradient(ellipse at 90% 72%, #9dc7b355 0 5%, transparent 28%);
+}
+.checkpoint-card {
+  display: grid;
+  align-content: start;
+  gap: 0;
+  border-radius: 14px 22px 14px 22px;
+  border-width: 1px;
+  box-shadow:
+    4px 5px 0 color-mix(in srgb, var(--card-accent, #dfaa9d) 56%, transparent),
+    0 18px 34px #47392c1a;
+  transition:
+    max-height 0.45s ease,
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    padding 0.35s ease;
+}
+.checkpoint-card::after {
+  content: "";
+  width: 23px;
+  height: 23px;
+  top: -1px;
+  right: -1px;
+  border-radius: 0 18px 0 7px;
+  opacity: 0.9;
+}
+.checkpoint-card h2 {
+  max-width: 17ch;
+  font-size: clamp(1.25rem, 2.35vw, 1.85rem);
+  line-height: 1.35;
+  letter-spacing: -0.045em;
+}
+.card-copy {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.card-kicker {
+  letter-spacing: 0.015em;
+}
+.placeholder-list > div,
+.project-card,
+.memory-photo,
+.flower-garden,
+.resume-slot {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.placeholder-list > div:hover,
+.project-card:hover,
+.memory-photo:hover {
+  transform: translateY(-3px);
+}
+.checkpoint-card > :not(.card-kicker):not(h2) {
+  transition: opacity 0.18s ease;
+}
+.pathway {
+  opacity: 0.84;
+}
+footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f2e1cf, #f2e8dc);
+}
+footer::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(to right, #557a9515 1px, transparent 1px),
+    linear-gradient(to bottom, #557a9515 1px, transparent 1px);
+  background-size: 34px 34px;
+}

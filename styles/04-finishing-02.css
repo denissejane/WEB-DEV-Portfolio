@@ -1,0 +1,336 @@
+/* 04-finishing-02.css: finishing styles, continued in cascade order. */
+.nav-dot {
+  width: 26px;
+  height: 26px;
+  border: 1px solid color-mix(in srgb, var(--orange) 28%, var(--line));
+  border-radius: 9px 9px 9px 4px;
+  background: color-mix(in srgb, var(--peach) 30%, var(--card));
+  color: #9b594a;
+  font-size: 0.88rem;
+}
+.code-nav-icon {
+  font: 700 0.64rem monospace;
+}
+:root[data-theme="dark"] .checkpoint-nav {
+  background: transparent;
+  box-shadow: none;
+}
+:root[data-theme="dark"] .checkpoint-link {
+  background: #302c38;
+  color: #eadbd0;
+  border-color: #5c5260;
+  box-shadow: 0 2px 0 #14121b;
+}
+:root[data-theme="dark"] .checkpoint-link.is-active {
+  background: #f1c36f;
+  border-color: #c69550;
+  border-bottom-color: #926431;
+  color: #382d2a;
+  box-shadow: 0 3px 0 #926431;
+}
+:root[data-theme="dark"] .nav-dot {
+  background: #493842;
+  border-color: #715a67;
+  color: #ffd0ad;
+}
+
+/* Give every card more breathing room; collapsed stops retain their label and subtitle. */
+@media (min-width: 761px) {
+  .checkpoint-card {
+    width: 46%;
+  }
+  #checkpoint-2 .checkpoint-card {
+    width: 50%;
+  }
+}
+@media (max-width: 760px) {
+  .checkpoint-nav {
+    width: 0;
+    max-width: none;
+    gap: 0.22rem;
+    padding: 0.2rem;
+  }
+  .checkpoint-link {
+    padding: 0.34rem 0.48rem;
+    font-size: 0.7rem;
+  }
+  .nav-dot {
+    width: 23px;
+    height: 23px;
+    flex: none;
+  }
+}
+
+/* Keep the page still unless the visitor scrolls or clicks. */
+
+
+/* ================================================================
+   UPDATES
+   Everything below is the new work, layered on top of the original
+   front page so the hero stays exactly how it was.
+   ================================================================ */
+
+/* ---------- 1. One continuous sky from the hero into the checkpoints ---------- */
+.hero,
+:root[data-theme="dark"] .hero {
+  background: none;
+  overflow: visible;
+  margin-bottom: 90px;
+}
+.hero-sky { overflow: visible; }
+main { overflow-x: clip; }
+
+/* hero island now floats like the others instead of being cut off at the edge */
+.hero-island {
+  border-radius: 50% 50% 46% 46% / 62% 62% 38% 38%;
+  box-shadow: inset 0 -12px #6f8867, 0 12px 0 -3px #ba8d67;
+}
+.hero-island:before { top: 118px; height: 90px; }
+
+/* clouds and sparkles that keep going down the page */
+.world-decor { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.world-decor .cloud { animation: cloud-slide 16s ease-in-out infinite; }
+.wd-a { left: 6%;  top: 5%;  font-size: 2.6rem; }
+.wd-b { right: 8%; top: 24%; font-size: 1.8rem; animation-delay: -5s !important; }
+.wd-c { left: 10%; top: 46%; font-size: 2.2rem; animation-delay: -9s !important; }
+.wd-d { right: 12%; top: 66%; font-size: 2rem;  animation-delay: -3s !important; }
+.wd-e { left: 7%;  top: 86%; font-size: 2.4rem; animation-delay: -12s !important; }
+.wd-s1 { left: 30%; top: 14%; }
+.wd-s2 { right: 24%; top: 38%; animation-delay: -1.5s; }
+.wd-s3 { left: 22%; top: 60%; animation-delay: -2.5s; }
+.wd-s4 { right: 28%; top: 80%; animation-delay: -.8s; }
+
+
+/* ---------- 2. Islands styled like the front page island ---------- */
+.island-scene {
+  width: 28%;
+  max-width: 300px;
+  height: clamp(150px, 17vw, 190px);
+  border-top: 14px solid rgba(255, 255, 255, .28);
+  box-shadow: inset 0 -12px #6f8867, 0 12px 0 -3px #b98967, 0 28px 26px #55433922;
+}
+.checkpoint .island-scene { border-radius: 50% 50% 46% 46% / 62% 62% 38% 38%; }
+.island-scene:after { bottom: -72px; width: 44%; height: 76px; }
+
+/* props now stand on top of the grass, like the tree on the hero island */
+.island-scene .little-tree { top: -40px; left: 10%; }
+.island-scene .little-flower { top: 28px; bottom: auto; right: 14%; }
+.island-scene .island-cloud { top: -68px; right: 6%; }
+.island-scene .cottage,
+.island-scene .clubhouse,
+.island-scene .tent,
+.island-scene .laptop,
+.island-scene .lighthouse { bottom: calc(100% - 32px); }
+.island-scene .tower { bottom: calc(100% - 28px); left: 30%; }
+.island-scene .flag { top: -30px; }
+.island-scene .mailbox { bottom: 26%; }
+.island-scene .stepping-stones,
+.island-scene .river { bottom: 24%; }
+.island-scene .matcha { bottom: 26%; left: 20%; }
+.island-scene .orange-charm { bottom: 28%; left: 34%; }
+.island-scene .trinket { top: 34px; left: 28%; }
+.island-scene .code-mark { top: -16px; right: 10%; }
+
+/* little extras */
+.island-scene .little-tree { transform-origin: bottom center; animation: sway 6s ease-in-out infinite; }
+
+
+/* ---------- 3. Wider, roomier cards ---------- */
+@media (min-width: 761px) {
+  .world { max-width: 1240px; }
+  .checkpoint { padding-left: 5%; padding-right: 5%; }
+  .checkpoint-card { width: 54%; }
+  #checkpoint-2 .checkpoint-card { width: 58%; }
+}
+.checkpoint-card { padding: clamp(1.7rem, 3vw, 2.8rem); }
+.checkpoint-card h2 { max-width: none; }
+.checkpoint-card:hover { box-shadow: 4px 5px 0 color-mix(in srgb, var(--card-accent, #dfaa9d) 56%, transparent), 0 22px 40px #47392c26; }
+
+
+/* ---------- 4. Dark mode: one dusk palette, no more muddy colors ---------- */
+:root[data-theme="dark"] {
+  --paper: #262340;
+  --card: #322d4a;
+  --line: #52496e;
+  --muted: #d9cbd2;
+}
+:root[data-theme="dark"] main {
+  background-image:
+    linear-gradient(to right, #b5d6e516 1px, transparent 1px),
+    linear-gradient(to bottom, #b5d6e516 1px, transparent 1px),
+    linear-gradient(180deg, #46374d 0%, #4a3d5c 20%, #3d3b5e 45%, #323a5a 72%, #2a3350 100%);
+}
+:root[data-theme="dark"] footer {
+  color: #d9cbd2;
+  background-image:
+    linear-gradient(to right, #b5d6e516 1px, transparent 1px),
+    linear-gradient(to bottom, #b5d6e516 1px, transparent 1px),
+    linear-gradient(180deg, #2a3350, #232b45);
+}
+:root[data-theme="dark"] .checkpoint.island-one,
+:root[data-theme="dark"] .checkpoint.island-two,
+:root[data-theme="dark"] .checkpoint.island-three,
+:root[data-theme="dark"] .checkpoint.island-four,
+:root[data-theme="dark"] .checkpoint.island-five {
+  background:
+    radial-gradient(ellipse at 25% 50%, #7a6a9a30 0%, transparent 68%),
+    radial-gradient(ellipse at 82% 78%, #c0788a22 0%, transparent 45%);
+}
+:root[data-theme="dark"] .island-scene { filter: brightness(.8) saturate(.85); }
+:root[data-theme="dark"] .checkpoint-card,
+:root[data-theme="dark"] #checkpoint-2 .checkpoint-card {
+  background-image:
+    repeating-linear-gradient(180deg, transparent 0 43px, #a7b88912 44px 45px),
+    linear-gradient(145deg, #352f4e, #2c2744);
+  border-color: #7d6a94;
+  box-shadow: 5px 6px 0 #4a3f66aa, 0 17px 30px #0d0a1f66;
+}
+:root[data-theme="dark"] .card-kicker { background: #463a5c; color: #ffd6b5; box-shadow: inset 0 -2px #7d6598; }
+:root[data-theme="dark"] .card-subtitle { background: #463d63; color: #f6e3cf; }
+:root[data-theme="dark"] .detail-chips span { background: #3f375a; color: #f3e6da; border-color: #5b5176; }
+:root[data-theme="dark"] .placeholder-list > div,
+:root[data-theme="dark"] .project-card,
+:root[data-theme="dark"] .flower-tabs a,
+:root[data-theme="dark"] .resume-slot,
+:root[data-theme="dark"] .contact-links a {
+  background: #3a3456;
+  border-color: #5b5176;
+  box-shadow: 2px 3px 0 #1b1730;
+}
+:root[data-theme="dark"] .memory-photo { background: #5a4468; color: #f2cdbd; outline-color: #a98aa8; border-color: #3a3456; box-shadow: 3px 4px 0 #1b1730; }
+:root[data-theme="dark"] .memory-blue { background: #3d5370; color: #bcd9ee; }
+:root[data-theme="dark"] .memory-yellow { background: #625444; color: #f5deaa; }
+:root[data-theme="dark"] .memory-photo span { color: inherit; }
+:root[data-theme="dark"] .checkpoint-nav { background: transparent; }
+:root[data-theme="dark"] .checkpoint-link { background: #322d4a; border-color: #52496e; }
+
+
+/* ---------- 5. Animations (nothing on the cards, a little life everywhere else) ---------- */
+@keyframes sun-glow {
+  0%, 100% { box-shadow: 0 0 0 14px #f6cb7133, 0 0 0 30px #f6cb711c; }
+  50%      { box-shadow: 0 0 0 20px #f6cb7144, 0 0 0 44px #f6cb7122; }
+}
+@keyframes float-y   { 0%, 100% { translate: 0 0; } 50% { translate: 0 -8px; } }
+@keyframes sway      { 0%, 100% { rotate: -4deg; } 50% { rotate: 4deg; } }
+@keyframes cloud-slide { 0%, 100% { translate: 0 0; } 50% { translate: 40px 0; } }
+@keyframes blink     { 0%, 94%, 100% { scale: 1; } 97% { scale: 1 .1; } }
+@keyframes bloom     { from { scale: 0; rotate: -90deg; } to { scale: 1; rotate: 0deg; } }
+
+.sun { animation: sun-glow 5s ease-in-out infinite; }
+.far-island { animation: float-y 8s ease-in-out infinite; }
+.far-island-two { animation-delay: -3s; }
+.far-island-three { animation-delay: -5s; }
+.hero-flower { transform-origin: bottom center; animation: sway 3.5s ease-in-out infinite; }
+.hero-tree { transform-origin: bottom center; animation: sway 7s ease-in-out infinite; }
+.avatar .eye { animation: blink 5s infinite; }
+.garden-flowers span { display: inline-block; animation: bloom .5s ease-out; }
+.checkpoint-link:hover { transform: translateY(-2px); }
+.checkpoint-link, .button, .flower-button, .theme-toggle { transition: transform .2s, background .2s, box-shadow .2s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+
+/* ---------- 6. Real content: bigger cards + new blocks ---------- */
+@media (min-width: 761px) {
+  .world { max-width: 1280px; }
+  .checkpoint { padding-left: 3%; padding-right: 3%; }
+  .island-scene { width: 22%; max-width: 240px; }
+  .checkpoint-card,
+  #checkpoint-2 .checkpoint-card { width: 66%; }
+}
+.checkpoint { min-height: 0; }
+
+.about-top { display: grid; grid-template-columns: 150px 1fr; gap: 1.4rem; align-items: center; margin-bottom: 1rem; }
+.photo-slot, .proj-img {
+  display: grid; place-items: center; text-align: center;
+  border: 2px dashed var(--line); background: var(--paper);
+  font-size: .7rem; font-weight: 800; color: var(--muted);
+}
+.photo-slot { aspect-ratio: 1; border-radius: 50% 50% 46% 46%; }
+
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: .8rem; margin: 1rem 0; }
+.box { padding: 1rem 1.1rem; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; }
+.box h3 { margin: 0 0 .6rem; font-size: .95rem; color: var(--orange); }
+.box ul { margin: 0; padding-left: 1.1rem; font-size: .92rem; line-height: 1.7; }
+.skill-row { margin-bottom: .9rem; }
+.skill-row b { display: block; margin-bottom: .1rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; color: var(--blue); }
+.skill-row .detail-chips { margin: .4rem 0 0; }
+
+.entry { display: flex; gap: .8rem; align-items: center; margin-bottom: .7rem; }
+.entry p { margin: 0; line-height: 1.45; font-size: .9rem; }
+.entry small { color: var(--muted); }
+.logo {
+  display: grid; place-items: center; flex: none; width: 42px; height: 42px;
+  border-radius: 12px 12px 12px 4px; background: color-mix(in srgb, var(--peach) 40%, var(--card));
+  border: 1px solid var(--line); color: var(--orange); font: 800 .6rem "Nunito", sans-serif; font-style: normal;
+}
+.logo img { width: 100%; height: 100%; object-fit: contain; border-radius: inherit; }
+
+.year { margin-bottom: .7rem; overflow: hidden; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; }
+.year summary, .proj summary { cursor: pointer; list-style: none; }
+.year summary::-webkit-details-marker, .proj summary::-webkit-details-marker { display: none; }
+.year summary { display: flex; justify-content: space-between; align-items: center; padding: .85rem 1.1rem; font-weight: 900; }
+.year summary:after { content: "See more ＋"; font-size: .75rem; color: var(--orange); }
+.year[open] summary:after { content: "Show less －"; }
+.year-body { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: .6rem 1.6rem; padding: 0 1.1rem 1.1rem; }
+.year-body h4 { margin: .3rem 0 .4rem; font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; color: var(--blue); }
+.year-body ul { margin: 0; padding-left: 1rem; font-size: .88rem; line-height: 1.6; }
+.year-body small { color: var(--muted); }
+
+.wins { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .8rem; margin: 1rem 0; }
+.win { padding: .9rem 1rem; background: color-mix(in srgb, var(--yellow) 22%, var(--card)); border: 1px solid var(--line); border-radius: 14px; font-size: .88rem; line-height: 1.45; }
+.win span { display: block; font-size: 1.6rem; }
+
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: .9rem; margin-top: 1rem; }
+.proj { display: flex; flex-direction: column; gap: .55rem; padding: 1rem; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; transition: transform .25s, box-shadow .25s; }
+.proj:hover { transform: translateY(-4px); box-shadow: 0 12px 24px #47392c1f; }
+.proj-img { aspect-ratio: 16 / 9; border-radius: 10px; }
+.proj-head { display: flex; gap: .6rem; align-items: center; }
+.proj h3 { margin: 0; font-size: 1rem; line-height: 1.2; }
+.proj p { margin: 0; font-size: .88rem; line-height: 1.55; color: var(--muted); }
+.pill { align-self: flex-start; padding: .25rem .6rem; border-radius: 999px; background: #e4eddf; color: #426448; font-size: .7rem; font-weight: 900; }
+.pill.gold { background: #f8e6b4; color: #7a5a1c; }
+:root[data-theme="dark"] .pill { background: #3c5142; color: #daf2d3; }
+:root[data-theme="dark"] .pill.gold { background: #5d4d2b; color: #f8e6b4; }
+.proj summary { color: var(--orange); font-weight: 800; font-size: .8rem; }
+.proj details p { margin-top: .5rem; }
+.proj-link { font-size: .8rem; font-weight: 800; color: var(--blue); text-decoration: none; }
+.proj-link:hover { text-decoration: underline; }
+
+@media (max-width: 760px) {
+  .about-top { grid-template-columns: 110px 1fr; }
+}
+
+/* ================================================================
+   CLEAN-UP LAYER
+   Tidier cards: a calm header, then collapsible sections (.fold).
+   Islands, trail, navigation, and hero are left as they were.
+   ================================================================ */
+
+/* ---------- Roomier cards ---------- */
+@media (min-width: 761px) {
+  .world { max-width: 1360px; }
+  .checkpoint { padding-left: 2.5%; padding-right: 2.5%; }
+  .island-scene { width: 19%; max-width: 230px; }
+  .checkpoint-card,
+  #checkpoint-2 .checkpoint-card { width: 72%; }
+}
+.checkpoint-card {
+  gap: 0.85rem;
+  padding: clamp(1.4rem, 3vw, 2.5rem);
+  background-image: none;
+  background-color: var(--card);
+}
+:root[data-theme="dark"] .checkpoint-card,
+:root[data-theme="dark"] #checkpoint-2 .checkpoint-card { background-image: none; background-color: #322d4a; }
+.checkpoint-card:hover { box-shadow: 4px 5px 0 color-mix(in srgb, var(--card-accent, #dfaa9d) 56%, transparent), 0 18px 34px #47392c1a; }
+
+/* ---------- Card header ---------- */
+.card-head { display: grid; gap: 0.55rem; justify-items: start; padding-bottom: 0.4rem; }
+.card-head .card-kicker { margin: 0; }
+.card-head h2 { margin: 0.2rem 0 0; max-width: none; }
+.card-head .card-subtitle { margin: 0; }
+.card-head .card-copy { margin: 0.2rem 0 0; max-width: 62ch; font-size: 0.96rem; line-height: 1.7; color: var(--muted); }
+

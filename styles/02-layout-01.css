@@ -1,0 +1,341 @@
+/* 02-layout-01.css: layout styles, continued in cascade order. */
+.status-tag {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.28rem 0.5rem;
+  border-radius: 999px;
+  background: #e4eddf;
+  color: #426448;
+  font-size: 0.69rem;
+  font-weight: 900;
+}
+.status-tag i {
+  width: 7px;
+  height: 7px;
+  background: #75a36c;
+  border-radius: 50%;
+}
+:root[data-theme="dark"] .status-tag {
+  color: #daf2d3;
+  background: #3c5142;
+}
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 1rem 0;
+}
+.contact-links a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 900;
+}
+.contact-links a span {
+  color: var(--ink);
+  font-size: 0.82rem;
+}
+.resume-slot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: var(--paper);
+  border: 1px dashed var(--line);
+  border-radius: 13px;
+  padding: 0.85rem 1rem;
+  font-weight: 900;
+}
+.resume-slot small {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.flower-garden {
+  margin-top: 1rem;
+  min-height: 95px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #f7e2bc, #e6ebdc);
+  color: #493b3c;
+}
+.flower-garden > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 130px;
+}
+.flower-garden small {
+  font-size: 0.72rem;
+}
+.garden-flowers {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 1.35rem;
+  color: #c96e78;
+}
+.flower-button {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: #b85e68;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #8e4f54;
+}
+.flower-button:hover {
+  transform: translateY(-2px);
+}
+:root[data-theme="dark"] .flower-garden {
+  background: linear-gradient(120deg, #55424d, #35463f);
+  color: #fff0df;
+}
+@media (max-width: 700px) {
+  .hero-copy {
+    margin-top: -1rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 12vw, 4.3rem);
+  }
+  .hero-island {
+    width: 340px;
+  }
+  .avatar-hero {
+    left: calc(50% - 152px);
+    bottom: 70px;
+    transform: scale(1);
+  }
+  .far-island-one {
+    left: -60px;
+  }
+  .far-island-two {
+    left: 6%;
+    top: 14%;
+  }
+  .far-island-three {
+    right: -55px;
+  }
+  .checkpoint {
+    min-height: unset;
+  }
+  .checkpoint-card {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+  }
+  .checkpoint-card h2 {
+    font-size: 1.7rem;
+  }
+  .island-scene {
+    width: 190px;
+    height: 150px;
+  }
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-card {
+    min-height: unset;
+  }
+  .flower-garden {
+    flex-wrap: wrap;
+  }
+  .garden-flowers {
+    min-width: 90px;
+  }
+  .contact-links a {
+    font-size: 0.85rem;
+  }
+}
+
+/* Keep the map fixed at the top as the visitor travels through the whole page. */
+.topbar {
+  position: relative;
+  inset: auto;
+  height: 64px;
+  background: var(--paper);
+}
+.checkpoint-nav {
+  position: sticky;
+  top: 0;
+  min-height: 62px;
+}
+html {
+  scroll-padding-top: 78px;
+}
+.checkpoint {
+  scroll-margin-top: 78px;
+}
+.checkpoint-nav .nav-caption {
+  margin-right: 0.4rem;
+}
+.checkpoint-link.is-active {
+  box-shadow: inset 0 -2px var(--orange);
+}
+.checkpoint-link.home-link {
+  color: var(--muted);
+}
+.world {
+  max-width: 1200px;
+}
+.checkpoint {
+  min-height: 590px;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+.checkpoint-card {
+  width: min(490px, 57%);
+  padding: clamp(1.45rem, 3vw, 2.25rem);
+  border-radius: 20px;
+  box-shadow: 0 14px 32px #65493416;
+}
+.checkpoint-card h2 {
+  font-size: clamp(1.55rem, 3vw, 2.1rem);
+}
+.card-copy {
+  line-height: 1.65;
+}
+.island-scene {
+  box-shadow:
+    inset 0 -12px #58775c,
+    0 13px 0 -3px #b98967,
+    0 24px 24px #5543391a;
+}
+.island-one .island-scene {
+  background: #a3ad78;
+  clip-path: polygon(
+    8% 27%,
+    23% 12%,
+    42% 17%,
+    54% 7%,
+    76% 16%,
+    94% 32%,
+    87% 66%,
+    69% 89%,
+    43% 93%,
+    17% 79%,
+    4% 54%
+  );
+  border: 0;
+}
+.island-two .island-scene {
+  background: #769a91;
+  clip-path: polygon(
+    14% 8%,
+    84% 8%,
+    100% 38%,
+    88% 84%,
+    62% 96%,
+    28% 89%,
+    0 52%
+  );
+  border: 0;
+}
+.island-three .island-scene {
+  background: #bf9a77;
+  clip-path: polygon(
+    0 44%,
+    18% 20%,
+    40% 19%,
+    56% 5%,
+    82% 22%,
+    100% 48%,
+    88% 80%,
+    67% 92%,
+    33% 84%,
+    11% 72%
+  );
+  border: 0;
+}
+.island-four .island-scene {
+  background: #708e9a;
+  clip-path: polygon(
+    10% 15%,
+    44% 4%,
+    67% 17%,
+    94% 17%,
+    100% 53%,
+    82% 84%,
+    54% 96%,
+    23% 88%,
+    0 58%
+  );
+  border: 0;
+}
+.island-five .island-scene {
+  background: #8f9f75;
+  clip-path: polygon(
+    9% 29%,
+    27% 11%,
+    53% 16%,
+    69% 4%,
+    93% 23%,
+    100% 57%,
+    83% 87%,
+    49% 96%,
+    20% 84%,
+    0 55%
+  );
+  border: 0;
+}
+.island-scene:after {
+  clip-path: polygon(0 0, 100% 0, 72% 100%, 27% 100%);
+}
+.island-prop {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  font-style: normal;
+  line-height: 1;
+  text-shadow: 2px 3px #54463d66;
+}
+.cottage {
+  bottom: 43px;
+  left: 45%;
+  color: #f4dfbd;
+  font-size: 3.4rem;
+  transform: scaleX(1.25);
+}
+.stepping-stones {
+  bottom: 26px;
+  left: 29%;
+  color: #e5cd9e;
+  font-size: 1.35rem;
+  letter-spacing: 0.25rem;
+}
+.clubhouse {
+  bottom: 44px;
+  right: 26%;
+  width: 50px;
+  height: 38px;
+  border-radius: 5px 5px 2px 2px;
+  background: #f2d4a6;
+  color: #a85e4a;
+  font-size: 0;
+  box-shadow: inset 0 7px #df8b68;
+}
+.clubhouse:after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 0;
+  width: 13px;
+  height: 21px;
+  background: #ad745c;
+  box-shadow: 15px -9px 0 -4px #83a18b;
+}

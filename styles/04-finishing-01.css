@@ -1,0 +1,339 @@
+/* 04-finishing-01.css: finishing styles, continued in cascade order. */
+:root[data-theme="dark"] footer {
+  background: linear-gradient(180deg, #30444a, #29363d);
+}
+:root[data-theme="dark"] footer::before {
+  background-image:
+    linear-gradient(to right, #b5d6e522 1px, transparent 1px),
+    linear-gradient(to bottom, #b5d6e522 1px, transparent 1px);
+}
+@media (min-width: 761px) {
+  .checkpoint {
+    scroll-margin-top: 94px;
+  }
+  .checkpoint-card {
+    width: 42%;
+  }
+  #checkpoint-2 .checkpoint-card {
+    width: 48%;
+  }
+}
+@media (max-width: 760px) {
+  .topbar {
+    min-height: 58px;
+    gap: 0.4rem;
+    padding: 0.4rem 0.55rem;
+  }
+  .brand {
+    max-width: 74px;
+    font-size: 7px;
+  }
+  .checkpoint-nav {
+    flex: 1;
+    width: 0;
+    gap: 0.08rem;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .checkpoint-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .checkpoint-link {
+    min-height: 34px;
+    padding: 0.36rem 0.52rem;
+    font-size: 0.62rem;
+  }
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .placeholder-list > div,
+  .project-card,
+  .memory-photo,
+  .flower-garden,
+  .resume-slot {
+    transition: none;
+  }
+}
+
+/* Calm the scene: keep the drawings still and let the page movement do the work. */
+
+/* The trail uses a centered spine, with a branch that meets each island edge. */
+.pathway {
+  left: 0;
+  right: 0;
+  width: 100%;
+  transform: none;
+  opacity: 0.9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath d='M500 0 V1000' fill='none' stroke='%23a66c55' stroke-opacity='.32' stroke-width='17' stroke-linecap='round'/%3E%3Cpath d='M500 0 V1000' fill='none' stroke='%23fff0da' stroke-width='9' stroke-linecap='round'/%3E%3Cpath d='M500 0 V1000' fill='none' stroke='%23c78966' stroke-width='2.5' stroke-dasharray='1 13' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+:root[data-theme="dark"] .pathway {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath d='M500 0 V1000' fill='none' stroke='%230b1114' stroke-opacity='.42' stroke-width='18' stroke-linecap='round'/%3E%3Cpath d='M500 0 V1000' fill='none' stroke='%23a8b99a' stroke-width='9' stroke-linecap='round'/%3E%3Cpath d='M500 0 V1000' fill='none' stroke='%23e5c78b' stroke-width='2.5' stroke-dasharray='1 13' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+.checkpoint::after {
+  z-index: 1;
+  top: 50%;
+  height: 6px;
+  border: 0;
+  border-radius: 99px;
+  background: #fff0da;
+  box-shadow: 0 1px 3px #795c4933;
+  opacity: 1;
+  transform: translateY(-50%);
+}
+.island-one::after,
+.island-three::after,
+.island-five::after {
+  left: 35%;
+  width: 15%;
+}
+.island-two::after,
+.island-four::after {
+  left: 50%;
+  width: 15%;
+}
+:root[data-theme="dark"] .checkpoint::after {
+  border-color: #a8b99a;
+}
+
+/* Collapsed stops become tidy two-line title tabs instead of clipped mini-cards. */
+.pathway {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  opacity: 1;
+  background: none !important;
+}
+.pathway path {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.trail-glow {
+  stroke: #b97e63;
+  stroke-width: 16px;
+  stroke-opacity: 0.34;
+  filter: url(#trail-soften);
+}
+.trail-base {
+  stroke: #fff0da;
+  stroke-width: 9px;
+}
+.trail-center {
+  stroke: #c78966;
+  stroke-width: 2.5px;
+  stroke-dasharray: 1 13;
+}
+:root[data-theme="dark"] .trail-glow {
+  stroke: #0b1114;
+  stroke-opacity: 0.48;
+}
+:root[data-theme="dark"] .trail-base {
+  stroke: #9eaf94;
+}
+:root[data-theme="dark"] .trail-center {
+  stroke: #e5c78b;
+}
+.checkpoint::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* One page-wide, fixed grid stays aligned from the hero through the footer. */
+.hero {
+  background-image:
+    linear-gradient(to right, #557a9510 1px, transparent 1px),
+    linear-gradient(to bottom, #557a9510 1px, transparent 1px),
+    linear-gradient(180deg, #f2b5a6 0%, #f5c4aa 63%, #f6d4c4 100%);
+  background-size:
+    34px 34px,
+    34px 34px,
+    100% 100%;
+  background-position:
+    0 0,
+    0 0,
+    0 0;
+  background-attachment: fixed, fixed, scroll;
+}
+main {
+  position: relative;
+  isolation: isolate;
+  background-image:
+    linear-gradient(to right, #557a9510 1px, transparent 1px),
+    linear-gradient(to bottom, #557a9510 1px, transparent 1px),
+    linear-gradient(
+      180deg,
+      #f6d4c4 0%,
+      #f7e2c9 24%,
+      #e9e5ce 46%,
+      #dce7d6 68%,
+      #d9e9e6 86%,
+      #f2e1cf 100%
+    );
+  background-size:
+    34px 34px,
+    34px 34px,
+    100% 100%;
+  background-position:
+    0 0,
+    0 0,
+    0 0;
+  background-attachment: fixed, fixed, scroll;
+  background-repeat: repeat, repeat, no-repeat;
+}
+footer {
+  background-image:
+    linear-gradient(to right, #557a9510 1px, transparent 1px),
+    linear-gradient(to bottom, #557a9510 1px, transparent 1px),
+    linear-gradient(180deg, #f2e1cf, #f2e8dc);
+  background-size:
+    34px 34px,
+    34px 34px,
+    100% 100%;
+  background-position:
+    0 0,
+    0 0,
+    0 0;
+  background-attachment: fixed, fixed, scroll;
+  background-repeat: repeat, repeat, no-repeat;
+}
+.world::before,
+.checkpoint::before,
+footer::before {
+  content: none !important;
+  display: none !important;
+}
+:root[data-theme="dark"] .hero {
+  background-image:
+    linear-gradient(to right, #b5d6e516 1px, transparent 1px),
+    linear-gradient(to bottom, #b5d6e516 1px, transparent 1px),
+    linear-gradient(180deg, #46374d 0%, #594858 62%, #4b3d50 100%);
+}
+:root[data-theme="dark"] main {
+  background-image:
+    linear-gradient(to right, #b5d6e516 1px, transparent 1px),
+    linear-gradient(to bottom, #b5d6e516 1px, transparent 1px),
+    linear-gradient(
+      180deg,
+      #4b3d50 0%,
+      #504654 24%,
+      #414553 48%,
+      #34494c 73%,
+      #30444a 100%
+    );
+}
+:root[data-theme="dark"] footer {
+  background-image:
+    linear-gradient(to right, #b5d6e516 1px, transparent 1px),
+    linear-gradient(to bottom, #b5d6e516 1px, transparent 1px),
+    linear-gradient(180deg, #30444a, #29363d);
+}
+
+/* Restore the original quiet dashed trail, while keeping its island-to-island curve. */
+.pathway {
+  opacity: 0.58;
+}
+.trail-glow {
+  stroke: #a77e69;
+  stroke-width: 8px;
+  stroke-opacity: 0.16;
+  filter: none;
+}
+.trail-base {
+  stroke: #d4aa7d;
+  stroke-width: 4px;
+  stroke-dasharray: 6 12;
+}
+.trail-center {
+  display: none;
+}
+:root[data-theme="dark"] .trail-glow {
+  stroke: #17151e;
+  stroke-opacity: 0.34;
+}
+:root[data-theme="dark"] .trail-base {
+  stroke: #c4a68a;
+  stroke-width: 4px;
+  stroke-dasharray: 6 12;
+}
+
+/* The whole island section sits above the trail, so the route cannot cross a card. */
+.pathway {
+  z-index: 0;
+}
+.checkpoint {
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+}
+.checkpoint-card,
+.island-scene {
+  position: relative;
+  z-index: 2;
+}
+.hero,
+.world {
+  position: relative;
+  z-index: 1;
+}
+
+/* Restore the playful checkpoint tabs instead of the plain text-only menu. */
+.checkpoint-nav {
+  width: max-content;
+  max-width: 100%;
+  gap: 0.32rem;
+  padding: 0.25rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.checkpoint-link {
+  gap: 0.42rem;
+  border: 1px solid var(--line);
+  border-bottom: 3px solid #d6ad7b;
+  border-radius: 12px 12px 9px 9px;
+  background: var(--card);
+  box-shadow: 0 2px 0 #6c51421c;
+  color: var(--muted);
+  font-size: 0.76rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.checkpoint-link:nth-of-type(2) {
+  border-bottom-color: #d77f88;
+}
+.checkpoint-link:nth-of-type(3) {
+  border-bottom-color: #8c9f75;
+}
+.checkpoint-link:nth-of-type(4) {
+  border-bottom-color: #d99a65;
+}
+.checkpoint-link:nth-of-type(5) {
+  border-bottom-color: #7897aa;
+}
+.checkpoint-link:nth-of-type(6) {
+  border-bottom-color: #a184a0;
+}
+.checkpoint-link:hover {
+  background: color-mix(in srgb, var(--peach) 24%, var(--card));
+}
+.checkpoint-link.is-active {
+  background: #f6cb71;
+  border-color: #d7aa5d;
+  border-bottom-color: #a9783d;
+  color: #493b3c;
+  box-shadow: 0 3px 0 #a9783d;
+}

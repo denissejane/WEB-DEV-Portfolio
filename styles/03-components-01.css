@@ -1,0 +1,339 @@
+/* 03-components-01.css: components styles, continued in cascade order. */
+:root[data-theme="dark"] main {
+  background: linear-gradient(
+    180deg,
+    #493a4c 0%,
+    #514450 19%,
+    #4d4a56 42%,
+    #3c4b50 69%,
+    #30444a 100%
+  );
+}
+.hero {
+  background: transparent;
+}
+:root[data-theme="dark"] .hero {
+  background: transparent;
+}
+.world::before {
+  background:
+    radial-gradient(ellipse at 12% 8%, #fff8df88 0 3%, transparent 23%),
+    radial-gradient(ellipse at 86% 24%, #f8c7ad66 0 4%, transparent 23%),
+    radial-gradient(ellipse at 14% 48%, #f7f3dc88 0 5%, transparent 27%),
+    radial-gradient(ellipse at 90% 72%, #c5d9c477 0 5%, transparent 28%);
+  background-size: auto;
+  opacity: 0.8;
+}
+:root[data-theme="dark"] .world::before {
+  background:
+    radial-gradient(ellipse at 12% 8%, #e3b5a766 0 3%, transparent 23%),
+    radial-gradient(ellipse at 86% 24%, #9e85ba55 0 4%, transparent 23%),
+    radial-gradient(ellipse at 14% 48%, #d6c79744 0 5%, transparent 27%),
+    radial-gradient(ellipse at 90% 72%, #9dc7b344 0 5%, transparent 28%);
+}
+.pathway {
+  display: none;
+}
+.checkpoint-nav {
+  border-bottom: 0;
+  box-shadow: none;
+  background: color-mix(in srgb, var(--paper) 72%, transparent);
+}
+.topbar {
+  background: transparent;
+}
+.checkpoint-card {
+  box-shadow:
+    0 15px 32px #71594b18,
+    0 3px 0 #fff8ed99;
+  border: 1px solid #ead8c8;
+}
+.checkpoint-card::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  pointer-events: none;
+  border: 1px dashed color-mix(in srgb, var(--line) 68%, transparent);
+  border-radius: 17px;
+}
+.checkpoint-card::after {
+  top: 18px;
+  right: 20px;
+}
+:root[data-theme="dark"] .checkpoint-card {
+  border-color: #5a5260;
+  box-shadow: 0 15px 34px #11101955;
+}
+:root[data-theme="dark"] .checkpoint-card::before {
+  border-color: #665d68;
+}
+.little-tree {
+  font-size: 0;
+  width: 39px;
+  height: 58px;
+  text-shadow: none;
+}
+.little-tree::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  bottom: 15px;
+  width: 36px;
+  height: 38px;
+  background: currentColor;
+  clip-path: polygon(
+    50% 0,
+    67% 14%,
+    69% 25%,
+    100% 49%,
+    82% 60%,
+    94% 83%,
+    6% 83%,
+    18% 60%,
+    0 49%,
+    31% 25%,
+    33% 14%
+  );
+  filter: drop-shadow(2px 3px #344f3855);
+}
+.little-tree::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 0;
+  width: 9px;
+  height: 20px;
+  background: #8e6548;
+  box-shadow: 2px 0 #704e3d;
+}
+.cottage {
+  width: 42px;
+  height: 31px;
+  bottom: 40px;
+  left: 45%;
+  background: #f4dfbd;
+  border: 2px solid #d99471;
+  border-radius: 2px;
+  font-size: 0;
+  box-shadow:
+    inset 0 -5px #e7be8d,
+    2px 3px #875d4c55;
+}
+.cottage::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: -18px;
+  width: 50px;
+  height: 23px;
+  background: #d97965;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  filter: drop-shadow(2px 2px #875d4c);
+}
+.cottage::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  width: 10px;
+  height: 16px;
+  background: #9b7055;
+  border-radius: 4px 4px 0 0;
+  box-shadow: 16px -7px 0 -3px #78947d;
+}
+.clubhouse {
+  bottom: 42px;
+  right: 26%;
+  width: 48px;
+  height: 34px;
+  border: 2px solid #cb856d;
+  background: #f3d8b2;
+  box-shadow:
+    inset 0 7px #efad76,
+    2px 3px #5d695355;
+}
+.clubhouse::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: -4px;
+  width: 52px;
+  height: 20px;
+  background: #cf796d;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+}
+.clubhouse::after {
+  left: 17px;
+  width: 11px;
+  height: 18px;
+  background: #a97b60;
+  box-shadow: 15px -8px 0 -3px #78947d;
+}
+.tent {
+  bottom: 34px;
+  right: 25%;
+  width: 48px;
+  height: 43px;
+  font-size: 0;
+  color: transparent;
+  background: #e88e78;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  filter: drop-shadow(2px 4px #986951);
+}
+.tent::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  bottom: 0;
+  width: 10px;
+  height: 21px;
+  background: #f4d5a8;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.laptop {
+  bottom: 37px;
+  right: 25%;
+  width: 48px;
+  height: 31px;
+  font-size: 0;
+  color: transparent;
+  background: #f7dda4;
+  border: 4px solid #456579;
+  border-radius: 4px;
+  box-shadow: 0 5px #405969;
+}
+.laptop::after {
+  content: "";
+  position: absolute;
+  left: -9px;
+  bottom: -10px;
+  width: 58px;
+  height: 6px;
+  background: #d4d7d4;
+  border-radius: 1px 1px 5px 5px;
+}
+.lighthouse {
+  bottom: 35px;
+  right: 24%;
+  width: 28px;
+  height: 55px;
+  font-size: 0;
+  color: transparent;
+  background: repeating-linear-gradient(90deg, #f8ebd2 0 8px, #dc8876 8px 14px);
+  clip-path: polygon(19% 25%, 81% 25%, 100% 100%, 0 100%);
+}
+.lighthouse::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 0;
+  width: 19px;
+  height: 17px;
+  background: #dc8876;
+  border-top: 5px solid #f8e9c9;
+}
+.matcha {
+  font-size: 1.15rem;
+  filter: drop-shadow(0 3px #71855c66);
+}
+.matcha::before {
+  content: "";
+  position: absolute;
+  left: -3px;
+  bottom: 0;
+  width: 23px;
+  height: 4px;
+  border-radius: 50%;
+  background: #e6d3a4;
+}
+.matcha::after {
+  content: "〰";
+  position: absolute;
+  top: -13px;
+  left: 5px;
+  color: #fff4dd;
+  font-size: 0.8rem;
+  animation: steam-drift 2.5s ease-in-out infinite;
+}
+.orange-charm {
+  left: 23%;
+  top: auto;
+  bottom: 50px;
+  filter: drop-shadow(0 2px #ac714666);
+}
+.code-doodle {
+  position: absolute;
+  z-index: 1;
+  color: #fff4e0;
+  font:
+    700 1.2rem "Nunito",
+    sans-serif;
+  text-shadow: 0 2px 4px #825c6255;
+  animation: code-glow 4s ease-in-out infinite;
+}
+.code-doodle-one {
+  right: 17%;
+  top: 25%;
+}
+.code-doodle-two {
+  left: 16%;
+  top: 43%;
+  animation-delay: -2s;
+}
+.code-mark {
+  right: 13%;
+  top: 31px;
+  color: #f5e6b9;
+  font: 800 0.8rem monospace;
+  text-shadow: 0 1px #395563;
+  transform: rotate(-8deg);
+}
+.music-player {
+  position: fixed;
+  z-index: 10;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  max-width: min(350px, calc(100vw - 28px));
+  padding: 0.7rem 0.85rem;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--card) 93%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 12px 28px #51413c25;
+  backdrop-filter: blur(12px);
+}
+.music-note {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(140deg, #86a47b, #557c67);
+  font-size: 1.25rem;
+}
+.music-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+.music-copy strong {
+  font:
+    8px "Press Start 2P",
+    monospace;
+  color: var(--blue);
+}
+.music-status {
+  overflow: hidden;
+  max-width: 155px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted);
+  font-size: 0.72rem;
+  margin-top: 0.3rem;
+}

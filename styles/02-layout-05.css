@@ -1,0 +1,110 @@
+/* 02-layout-05.css: layout styles, continued in cascade order. */
+:root[data-theme="dark"] .checkpoint-card {
+  border-color: #9c6f7d;
+  box-shadow:
+    5px 6px 0 #674d5b88,
+    0 17px 30px #11101955;
+}
+.checkpoint::before {
+  opacity: 0.72;
+  background-image:
+    linear-gradient(to right, #557a9545 1px, transparent 1px),
+    linear-gradient(to bottom, #557a9545 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 9%,
+    #000 91%,
+    transparent 100%
+  );
+}
+:root[data-theme="dark"] .checkpoint::before {
+  opacity: 0.58;
+  background-image:
+    linear-gradient(to right, #b5d6e548 1px, transparent 1px),
+    linear-gradient(to bottom, #b5d6e548 1px, transparent 1px);
+}
+@media (max-width: 760px) {
+  .pathway {
+    display: block;
+    left: 0;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    opacity: 0.72;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000' preserveAspectRatio='none'%3E%3Cpath d='M28 0 C28 220 28 780 28 1000' fill='none' stroke='%23b97e63' stroke-width='20' stroke-dasharray='25 35' stroke-linecap='round'/%3E%3C/svg%3E");
+  }
+  .checkpoint {
+    padding-left: 0.35rem;
+    padding-right: 0.35rem;
+  }
+  .checkpoint-card,
+  #checkpoint-2 .checkpoint-card {
+    width: 100%;
+  }
+  .island-scene {
+    width: min(210px, 62vw);
+    max-width: none;
+  }
+  .checkpoint::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: calc(2.25rem + 76px);
+    width: calc(50% - 105px);
+    min-width: 0;
+    border-top: 4px dashed #b97e63;
+    opacity: 0.8;
+    pointer-events: none;
+  }
+  .island-scene {
+    z-index: 2;
+  }
+}
+@media (max-width: 380px) {
+  .checkpoint-nav {
+    padding-inline: 0.35rem;
+  }
+  .checkpoint-link {
+    gap: 0.25rem;
+    padding: 0.32rem 0.42rem;
+    font-size: 0.68rem;
+  }
+  .nav-dot {
+    width: 21px;
+    height: 21px;
+  }
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero-name {
+    font-size: 0.72rem;
+  }
+  .checkpoint-card {
+    padding: 1.2rem 1rem;
+  }
+}
+footer {
+  background: #f2e1cf;
+  border-top: 0;
+}
+:root[data-theme="dark"] footer {
+  background: #30444a;
+}
+
+/* Take out the strong route and repeated dot rows for one continuous painted backdrop. */
+main {
+  background: linear-gradient(
+    180deg,
+    #f2b6a7 0%,
+    #f5c8ad 15%,
+    #f6ddc2 34%,
+    #e9e4ce 54%,
+    #dce7d8 72%,
+    #d7e8e4 88%,
+    #f2e1cf 100%
+  );
+}

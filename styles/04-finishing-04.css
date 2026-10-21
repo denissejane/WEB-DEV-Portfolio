@@ -1,0 +1,255 @@
+/* 04-finishing-04.css: finishing styles, continued in cascade order. */
+@media(max-width:800px) {
+ .community-options { gap:.35rem; }
+ .community-option { font-size:.8rem; padding:.45rem .3rem; }
+ .adventure-columns { grid-template-columns:1fr; }
+ .adventure-fold[open] { grid-column:auto; }
+ .adventure-fold[open] .ev-list { grid-template-columns:1fr; }
+ .island-two .checkpoint-card,.island-three .checkpoint-card { width:100%; flex:1 1 100%; }
+ .island-two .island-scene,.island-three .island-scene { width:100px; flex-basis:100px; opacity:.65; }
+ .contact-card .contact-links { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:520px) {
+ .contact-card .contact-links { grid-template-columns:1fr; }
+ .community-option { font-size:.74rem; }
+}
+/* Final composition fixes from the supplied browser screenshots */
+/* Give the checkpoint islands more visual weight without squeezing their cards. */
+.island-one .checkpoint-card,.island-two .checkpoint-card,.island-three .checkpoint-card { width:74%; flex:1 1 74%; min-width:0; }
+.island-one .island-scene,.island-two .island-scene,.island-three .island-scene { width:22%; max-width:270px; flex:0 0 22%; transform:scale(1.18); }
+/* Adventure selectors remain visible side by side while the selected event list uses the whole card. */
+.adventure-explorer { width:100%; margin:.7rem 0 1.1rem; }
+.adventure-options { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.65rem; }
+.adventure-option { display:flex; align-items:center; gap:.65rem; min-width:0; min-height:54px; padding:.7rem .9rem; border:1px solid var(--line); border-radius:14px; background:var(--card); color:var(--ink); text-align:left; cursor:pointer; }
+.adventure-option > span { display:grid; place-items:center; flex:none; width:30px; height:30px; border-radius:10px; background:#f5e0d0; color:#bd704f; }
+.adventure-option b { font-size:.92rem; }
+.adventure-option small { margin-left:auto; color:var(--muted); font-size:.76rem; }
+.adventure-option[aria-expanded="true"] { border-color:#d79673; background:#f8eadc; box-shadow:inset 0 -3px #d98b68; }
+.adventure-panel { margin-top:.65rem; }
+.adventure-events[hidden] { display:none; }
+.adventure-events .ev-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.6rem; }
+.adventure-events .ev { height:100%; min-width:0; padding:.75rem .85rem; }
+.adventure-events .ev > div { min-width:0; }
+.adventure-events .ev b { font-size:.86rem; }
+.adventure-events .ev span,.adventure-events .ev em { font-size:.76rem; }
+/* Place the memory heading directly with its photo rail, after the event area. */
+.memory-wall-title { margin:1.3rem 0 .55rem; }
+/* Put garden choices below the invitation, as a short horizontal palette. */
+.contact-card .flower-garden { display:grid; grid-template-columns:minmax(0,1fr); justify-items:start; align-items:start; gap:.45rem; min-height:0; padding:.75rem .85rem; }
+.contact-card .flower-garden > div { grid-row:1; }
+.contact-card .garden-flowers { grid-row:2; min-height:0; }
+.contact-card .garden-picker { grid-row:3; display:flex; flex-direction:row; flex-wrap:wrap; gap:.4rem; }
+.contact-card .garden-picker button { width:38px; height:38px; }
+/* Project groups were being removed after they were moved; keep both disclosure panels in the left column. */
+.project-layout { grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:1rem; }
+.project-folds > details.fold { min-width:0; }
+.project-folds > details.fold .proj-grid { grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); }
+.project-feature > .proj { grid-template-columns:minmax(0,1fr) minmax(140px,.8fr); }
+@media(max-width:800px) {
+ .island-one .checkpoint-card,.island-two .checkpoint-card,.island-three .checkpoint-card { width:100%; flex:1 1 100%; }
+ .island-one .island-scene,.island-two .island-scene,.island-three .island-scene { width:130px; flex-basis:130px; transform:scale(1.08); }
+ .adventure-events .ev-list { grid-template-columns:1fr; }
+ .project-layout { grid-template-columns:1fr; }
+ .project-feature { grid-row:1; }
+}
+@media(max-width:520px) {
+ .adventure-options { gap:.4rem; }
+ .adventure-option { gap:.35rem; padding:.55rem; }
+ .adventure-option b { font-size:.8rem; }
+ .adventure-option small { font-size:.66rem; }
+}
+
+/* Review pass: compact collapsed islands and distribute content across the viewport. */
+.checkpoint { min-height:0; padding-block:clamp(1.1rem,2.4vw,2rem); }
+.island-one,.island-two,.island-three,.island-four { display:grid; grid-template-columns:minmax(0,1fr) 260px; align-items:center; gap:clamp(1rem,2vw,1.8rem); padding-inline:3%; }
+.island-one .checkpoint-card,.island-two .checkpoint-card,.island-three .checkpoint-card,.island-four .checkpoint-card { width:100%; min-width:0; margin:0; }
+.island-one .island-scene,.island-two .island-scene,.island-three .island-scene,.island-four .island-scene { width:100%; max-width:260px; justify-self:center; transform:scale(1.15); }
+#checkpoint-1 .about-top { grid-template-columns:130px minmax(0,1fr); gap:1rem; align-items:center; }
+#checkpoint-1 .about-top .card-copy { font-size:.9rem; line-height:1.55; }
+#checkpoint-1 .about-top .detail-chips { gap:.35rem; }
+#checkpoint-1 .about-top .detail-chips span { padding:.3rem .55rem; font-size:.75rem; }
+#checkpoint-1 .org-list.single { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.55rem; }
+#checkpoint-1 .org { min-width:0; padding:.7rem; }
+#checkpoint-1 .org b { font-size:.85rem; }
+#checkpoint-1 .roles span { font-size:.72rem; }
+#checkpoint-1 .fold-body { padding:.45rem .7rem .75rem; }
+#checkpoint-1 .plain { font-size:.84rem; line-height:1.55; }
+#checkpoint-1 .subcard { padding:.75rem .85rem; }
+#checkpoint-1 .subcard-head { margin-bottom:.4rem; }
+/* No empty outlined shell after all Community tabs are collapsed. */
+.community-panels[hidden] { display:none; }
+.community-panels { padding:.55rem; }
+.community-panel .org-list { grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:.45rem; }
+.community-panel .org { padding:.5rem; }
+.community-panel .org > .logo { width:34px; height:34px; font-size:.63rem; }
+.community-panel .org b { font-size:.78rem; }
+.community-panel .roles span { font-size:.67rem; }
+/* Calm down Adventures: tighter type, consistent event cards, and balanced space. */
+#checkpoint-3 .card-head { margin-bottom:.25rem; }
+#checkpoint-3 .card-head h2 { font-size:1.5rem; }
+#checkpoint-3 .card-subtitle { font-size:.9rem; }
+.adventure-option { min-height:46px; padding:.55rem .75rem; }
+.adventure-option b { font-size:.84rem; }
+.adventure-events .ev-list { gap:.45rem; }
+.adventure-events .ev { padding:.58rem .68rem; }
+.adventure-events .ev b { font-size:.78rem; }
+.adventure-events .ev span,.adventure-events .ev em { font-size:.7rem; line-height:1.4; }
+/* eGuide left; side quests and academic projects form compact horizontal photo rails on the right. */
+.project-layout { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:1rem; align-items:start; }
+.project-feature { grid-column:1; grid-row:1; }
+.project-folds { grid-column:2; grid-row:1; display:flex; flex-direction:column; gap:.65rem; }
+.project-feature > .proj { grid-template-columns:minmax(0,1fr) minmax(120px,.72fr); padding:.9rem; gap:.55rem .7rem; }
+.project-feature .proj-img { height:150px; max-height:150px; }
+.project-folds > details.fold .fold-body { padding:.35rem .5rem .65rem; }
+.project-folds > details.fold .proj-grid { display:flex; flex-wrap:nowrap; overflow-x:auto; overflow-y:hidden; gap:.55rem; padding:.1rem .1rem .55rem; scroll-snap-type:x mandatory; }
+.project-folds > details.fold .proj { flex:0 0 clamp(185px,48%,245px); min-width:0; scroll-snap-align:start; }
+.project-folds > details.fold .proj-img { width:100%; height:auto; max-height:none; aspect-ratio:1.55; object-fit:cover; }
+.project-folds .proj h3 { font-size:.9rem; }
+.project-folds .proj p { font-size:.76rem; line-height:1.4; }
+.project-folds .proj details p { font-size:.74rem; }
+/* Skill section stands out; tool chips gain recognizable, brand-colored marks. */
+#checkpoint-1 .skills-card { border:1px solid #e6b765; background:linear-gradient(135deg,#fff3c9,#fce1d8 45%,#e5f0dc); box-shadow:inset 0 0 0 3px #fff9; }
+#checkpoint-1 .skills-card .subcard-head b { color:#8057a8; }
+#checkpoint-1 .skill-tabs button:nth-child(1) { background:#ffe09a; color:#765313; border-color:#e6bc62; }
+#checkpoint-1 .skill-tabs button:nth-child(2) { background:#d6edff; color:#23628a; border-color:#82c1e4; }
+#checkpoint-1 .skill-tabs button:nth-child(3) { background:#e6dcff; color:#63499b; border-color:#b3a0e0; }
+#checkpoint-1 .skill-tabs button:nth-child(4) { background:#dcefd5; color:#467246; border-color:#a5ca98; }
+#checkpoint-1 .skill-tabs button[aria-selected="true"] { box-shadow:0 3px 0 #76625a33; transform:translateY(-1px); }
+#checkpoint-1 .skill-panel .detail-chips span { display:inline-flex; align-items:center; gap:.35rem; background:#fffdf8; border:1px solid #eadac7; }
+.tool-icon { display:inline-grid; place-items:center; width:21px; height:21px; flex:none; border-radius:6px; background:var(--brand); color:white; font-style:normal; font-size:.7rem; font-weight:900; }
+/* Keep the end compact when panels are closed, and keep every rail scrollbar hidden. */
+#checkpoint-4 .project-layout { margin-top:.3rem; }
+#checkpoint-4 .project-feature .proj-img { max-width:100%; }
+* { scrollbar-width:none; }
+*::-webkit-scrollbar { display:none; }
+@media(max-width:900px) {
+ .island-one,.island-two,.island-three,.island-four { grid-template-columns:minmax(0,1fr) 190px; }
+ .island-one .island-scene,.island-two .island-scene,.island-three .island-scene,.island-four .island-scene { max-width:190px; }
+ .project-folds > details.fold .proj { flex-basis:210px; }
+}
+@media(max-width:700px) {
+ .island-one,.island-two,.island-three,.island-four { grid-template-columns:1fr; }
+ .island-one .island-scene,.island-two .island-scene,.island-three .island-scene,.island-four .island-scene { grid-row:1; width:160px; max-width:160px; height:125px; }
+ .island-one .checkpoint-card,.island-two .checkpoint-card,.island-three .checkpoint-card,.island-four .checkpoint-card { grid-row:2; }
+ #checkpoint-1 .org-list.single { grid-template-columns:1fr; }
+ .project-layout { grid-template-columns:1fr; }
+ .project-feature { grid-column:1; grid-row:1; }
+ .project-folds { grid-column:1; grid-row:2; }
+ .project-feature > .proj { grid-template-columns:minmax(0,1fr) minmax(110px,.75fr); }
+ .project-folds > details.fold .proj { flex-basis:220px; }
+}
+@media(max-width:480px) {
+ #checkpoint-1 .about-top { grid-template-columns:1fr; justify-items:start; }
+ .project-feature > .proj { grid-template-columns:1fr; }
+ .project-feature .proj-img { grid-column:1; grid-row:auto; height:130px; }
+}
+/* Correct checkpoint grid placement: the portfolio card gets the wide column. */
+.island-one .checkpoint-card,.island-two .checkpoint-card,.island-three .checkpoint-card,.island-four .checkpoint-card { grid-column:1; grid-row:1; width:100%; }
+.island-one .island-scene,.island-two .island-scene,.island-three .island-scene,.island-four .island-scene { grid-column:2; grid-row:1; width:100%; justify-self:stretch; }
+@media(max-width:700px) {
+ .island-one .checkpoint-card,.island-two .checkpoint-card,.island-three .checkpoint-card,.island-four .checkpoint-card { grid-column:1; grid-row:2; }
+ .island-one .island-scene,.island-two .island-scene,.island-three .island-scene,.island-four .island-scene { grid-column:1; grid-row:1; width:160px; justify-self:center; }
+}
+
+/* Center the portfolio cards on the page; islands decorate the sides without taking card width. */
+.world { width:min(100%,1500px); max-width:1500px; margin-inline:auto; }
+.checkpoint.island-one,.checkpoint.island-two,.checkpoint.island-three,.checkpoint.island-four,.checkpoint.island-five {
+  display:block; width:100%; min-height:0; padding:clamp(1.15rem,3vw,2.25rem) clamp(1rem,4vw,3.5rem); position:relative;
+}
+.checkpoint .checkpoint-card,.checkpoint.island-two .checkpoint-card,.checkpoint.island-three .checkpoint-card,.checkpoint.island-four .checkpoint-card,.checkpoint.island-five .checkpoint-card {
+  position:relative; z-index:2; width:min(100%,900px); max-width:900px; margin:0 auto; min-width:0;
+}
+#checkpoint-1 .checkpoint-card,#checkpoint-2 .checkpoint-card,#checkpoint-3 .checkpoint-card,#checkpoint-4 .checkpoint-card,#checkpoint-5 .checkpoint-card { width:min(100%,900px); max-width:900px; margin-inline:auto; }
+.checkpoint .island-scene { position:absolute; z-index:1; top:50%; right:max(12px,calc((100% - 900px)/2 - 210px)); width:200px; height:170px; max-width:none; transform:translateY(-50%); opacity:.88; pointer-events:none; }
+.island-one .checkpoint-card,.island-two .checkpoint-card,.island-three .checkpoint-card,.island-four .checkpoint-card { grid-column:auto; grid-row:auto; }
+.brand { font-size:9px; }
+.topbar { height:58px; }
+.checkpoint-nav .checkpoint-link { min-height:34px; padding:.34rem .5rem; font-size:.7rem; }
+.checkpoint-nav .checkpoint-link .nav-dot { width:24px; height:24px; }
+.theme-toggle { padding:.45rem .7rem; }
+.contact-links { display:flex; flex-direction:column; gap:.55rem; }
+.contact-details { display:grid; gap:.5rem; }
+.contact-details .tile { min-height:52px; }
+.contact-details .tile b { overflow-wrap:anywhere; font-size:.84rem; }
+.social-links { display:flex; gap:.6rem; padding-top:.25rem; }
+.social-links .social-icon { display:inline-flex; align-items:center; gap:.42rem; width:auto; height:36px; padding:.35rem .6rem; border:0; border-radius:8px; background:transparent; color:var(--muted); text-decoration:none; box-shadow:none; font-size:.78rem; font-weight:800; }
+.social-links .social-icon:hover { background:var(--paper); color:var(--ink); }
+.social-icon > i { display:inline-flex; align-items:center; justify-content:center; font-style:normal; font-weight:900; font-size:.95rem; }
+.social-icon svg { width:16px; height:16px; }
+.social-linkedin > i { color:#0a66c2; }.social-github > i { color:#24292f; }.social-facebook > i { color:#0866ff; }
+.contact-details .tile b { color:#4e6f8b; text-decoration:underline; text-decoration-color:#91abc0; text-underline-offset:2px; font-weight:900; }
+.contact-details .tile:hover b { color:#b35f3e; text-decoration-color:currentColor; }
+.project-photo-placeholder { width:100%; min-height:0; aspect-ratio:16/8; margin-bottom:.15rem; }
+.project-folds .proj { display:flex; flex-direction:column; align-items:stretch; }
+.project-folds .proj-img { order:-1; }
+#checkpoint-4 .project-folds > details.fold .proj .proj-img.project-photo-placeholder { grid-column:auto; grid-row:auto; width:100%; height:auto; min-height:0; aspect-ratio:16/8; }
+.project-folds .proj-head { margin-top:.15rem; }
+.community-options .community-option { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.1rem; }
+.community-option small { color:var(--muted); font-size:.66rem; font-weight:700; }
+.community-tenure { display:block; margin:.32rem 0 .08rem; color:var(--muted); font-size:.67rem; line-height:1.35; }
+.memory-grid { cursor:grab; overscroll-behavior-x:contain; scroll-behavior:smooth; }
+.memory-grid.is-dragging { cursor:grabbing; scroll-snap-type:none; user-select:none; }
+.memory-grid:focus-visible { outline:2px solid #dfa77e; outline-offset:4px; border-radius:12px; }
+.memory-wall-hint { margin:-.2rem 0 .55rem; color:var(--muted); font-size:.72rem; }
+.will-reveal { opacity:0; transform:translateY(14px); transition:opacity .55s ease,transform .55s ease; }
+.will-reveal.is-revealed { opacity:1; transform:none; }
+.checkpoint:not(.is-current) .checkpoint-card { opacity:.74; filter:blur(1.25px) saturate(.8); transition:filter .35s,opacity .35s; }
+.checkpoint.is-current .checkpoint-card { opacity:1; filter:none; }
+.checkpoint-card { transition:filter .35s,opacity .35s,box-shadow .25s; }
+.checkpoint-link .nav-dot { color:#b35f3e; background:#fae4d9; border-color:#ebc5b1; }
+.checkpoint-link:nth-of-type(n) { border-bottom-color:#d6ad7b; }
+.checkpoint-link:hover .nav-dot,.checkpoint-link.is-active .nav-dot { color:#fff; background:#ba6848; }
+@media(max-width:700px) {
+  .checkpoint .island-scene { right:.25rem; width:115px; height:100px; opacity:.3; }
+  .checkpoint .checkpoint-card { width:100%; }
+  .contact-details .tile b { font-size:.78rem; }
+}
+@media(prefers-reduced-motion:reduce) { .checkpoint:not(.is-current) .checkpoint-card,.checkpoint-card,.will-reveal { filter:none!important; opacity:1!important; transform:none!important; } }
+
+/* Keep each checkpoint's card and island together as one centered composition. */
+html, body { min-height:0; }
+main, #main, .world { height:auto; min-height:0; margin-bottom:0; padding-bottom:0; }
+.world { width:100%; max-width:none; margin:0 auto; padding-top:0; padding-inline:0; }
+.checkpoint.island-one,.checkpoint.island-two,.checkpoint.island-three,.checkpoint.island-four,.checkpoint.island-five {
+  display:grid; grid-template-columns:minmax(0,900px) 210px; justify-content:center; align-items:center; gap:1.25rem;
+  width:100%; min-height:0; height:auto; margin:0; padding:1.15rem clamp(1rem,2.4vw,2.25rem); position:relative;
+}
+.checkpoint .checkpoint-card,#checkpoint-1 .checkpoint-card,#checkpoint-2 .checkpoint-card,#checkpoint-3 .checkpoint-card,#checkpoint-4 .checkpoint-card,#checkpoint-5 .checkpoint-card {
+  position:relative; grid-column:1; grid-row:1; z-index:2; width:100%; max-width:900px; min-width:0; margin:0;
+}
+.checkpoint .island-scene { position:relative; inset:auto; grid-column:2; grid-row:1; z-index:2; width:200px; height:170px; max-width:none; justify-self:center; transform:none; opacity:1; pointer-events:none; }
+.checkpoint:not(.is-current) .checkpoint-card { opacity:1; filter:none; }
+.will-reveal { opacity:1; transform:none; }
+.world > .checkpoint:last-child { margin-bottom:0; padding-bottom:1rem; }
+footer { min-height:0; margin:0; padding:1rem 1rem .65rem; }
+
+/* Match every project photo holder and stack eGuide's two placeholders. */
+#checkpoint-4 .project-folds > details.fold .proj-img,
+#checkpoint-4 .project-feature .proj-img {
+  grid-column:2; grid-row:auto; width:100%; height:auto; min-height:0; max-height:none; aspect-ratio:1.55; object-fit:cover;
+}
+#checkpoint-4 .project-feature > .proj { display:grid; grid-template-columns:minmax(0,1fr) minmax(140px,.8fr); align-items:start; gap:.55rem .8rem; }
+#checkpoint-4 .project-feature .proj-img { grid-column:2; }
+#checkpoint-4 .project-feature .proj-head,
+#checkpoint-4 .project-feature .proj-award,
+#checkpoint-4 .project-feature .proj-description,
+#checkpoint-4 .project-feature .proj-tags,
+#checkpoint-4 .project-feature .proj-actions { grid-column:1; }
+#checkpoint-4 .project-feature .project-photo-placeholder-secondary { grid-column:2; }
+.memory-grid.is-auto { scroll-snap-type:none; }
+.memory-wall-hint { display:none; }
+.community-tenure { display:inline-flex; align-items:baseline; gap:.32rem; }
+.community-tenure i { color:#bf7856; font-style:normal; font-weight:900; }
+.roles { display:flex; flex-wrap:wrap; gap:.22rem .38rem; }
+.roles > span { display:inline-flex; align-items:baseline; gap:.24rem; }
+.roles .role-mark { color:#bf7856; font-size:.55em; font-style:normal; }
+@media(max-width:1000px) {
+  .checkpoint.island-one,.checkpoint.island-two,.checkpoint.island-three,.checkpoint.island-four,.checkpoint.island-five { grid-template-columns:minmax(0,1fr); gap:.45rem; padding:1rem clamp(.85rem,3vw,1.5rem); }
+  .checkpoint .island-scene { grid-column:1; grid-row:1; width:150px; height:120px; justify-self:center; }
+  .checkpoint .checkpoint-card,#checkpoint-1 .checkpoint-card,#checkpoint-2 .checkpoint-card,#checkpoint-3 .checkpoint-card,#checkpoint-4 .checkpoint-card,#checkpoint-5 .checkpoint-card { grid-column:1; grid-row:2; width:min(100%,900px); margin-inline:auto; }
+}
+@media(max-width:700px) {
+  #checkpoint-4 .project-feature > .proj { grid-template-columns:1fr; }
+  #checkpoint-4 .project-feature .proj-img { grid-column:1; }
+}
+@media(prefers-reduced-motion:reduce) { .memory-grid { scroll-behavior:auto; } }

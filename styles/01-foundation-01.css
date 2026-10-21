@@ -1,0 +1,334 @@
+/* 01-foundation-01.css: foundation styles, continued in cascade order. */
+/* ================================================================
+   THEME COLORS AND PAGE DEFAULTS
+   ================================================================ */
+:root {
+  color-scheme: light;
+  --peach: #f5b5a4;
+  --orange: #f28c58;
+  --yellow: #f6cb71;
+  --sage: #8c9f75;
+  --blue: #557a95;
+  --ivory: #fff0da;
+  --ink: #493c39;
+  --muted: #796a64;
+  --paper: #fffaf2;
+  --card: #fffdf9;
+  --line: #ead9c8;
+  --sky: #f8d7c7;
+  --shadow: 0 16px 40px #6549341b;
+  font-family: "Nunito", "Trebuchet MS", sans-serif;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #f8e9d7;
+  --muted: #c7b4a5;
+  --paper: #211f2b;
+  --card: #302c38;
+  --line: #4b4148;
+  --sky: #353146;
+  --shadow: 0 16px 40px #08070a55;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 105px;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  transition:
+    background 0.25s,
+    color 0.25s;
+}
+a {
+  color: inherit;
+}
+.skip-link {
+  position: absolute;
+  z-index: 20;
+  top: -5rem;
+  left: 1rem;
+  background: var(--card);
+  padding: 0.75rem 1rem;
+  border-radius: 0 0 10px 10px;
+}
+.skip-link:focus {
+  top: 0;
+}
+.topbar {
+  height: 68px;
+  padding: 0 clamp(1rem, 5vw, 4rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 5;
+}
+.brand {
+  text-decoration: none;
+  font:
+    10px "Press Start 2P",
+    monospace;
+  color: #684e49;
+  letter-spacing: -1px;
+}
+.brand span {
+  color: #b66d4f;
+}
+.theme-toggle {
+  border: 1px solid #65493433;
+  border-radius: 999px;
+  background: #fffaf299;
+  color: #493c39;
+  padding: 0.55rem 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font:
+    700 0.8rem "Nunito",
+    sans-serif;
+  cursor: pointer;
+}
+.theme-icon {
+  font-size: 1rem;
+}
+.hero {
+  min-height: 650px;
+  min-height: min(820px, 100svh);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 5.5rem 1.5rem 4rem;
+  background: linear-gradient(180deg, #f4af9a 0%, #f8c7a9 55%, #f8d8b6 100%);
+  color: #493c39;
+}
+:root[data-theme="dark"] .hero {
+  background: linear-gradient(180deg, #342d49, #51445a 55%, #715968);
+  color: #fff0da;
+}
+.hero-copy {
+  text-align: center;
+  max-width: 530px;
+  position: relative;
+  z-index: 2;
+  margin-top: 1rem;
+}
+.eyebrow,
+.scroll-hint,
+.card-kicker,
+.nav-caption {
+  font:
+    8px "Press Start 2P",
+    monospace;
+  letter-spacing: 0.03em;
+}
+.eyebrow {
+  color: #72564e;
+  margin: 0 0 1.1rem;
+}
+.hero h1 {
+  font:
+    clamp(2.35rem, 8vw, 5rem)/1.25 "Press Start 2P",
+    monospace;
+  letter-spacing: -0.09em;
+  margin: 0.2rem 0 1rem;
+  text-shadow: 4px 4px 0 #fff0da99;
+}
+.hero-name {
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  font-size: 0.84rem;
+  margin: 0 0 1rem;
+}
+.hero-intro {
+  max-width: 420px;
+  margin: 0 auto 1.5rem;
+  color: #634d47;
+  line-height: 1.7;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  border-radius: 999px;
+  padding: 0.85rem 1.25rem;
+  text-decoration: none;
+  font-weight: 800;
+  box-shadow: 0 5px 0 #47363124;
+  transition:
+    transform 0.18s,
+    box-shadow 0.18s;
+}
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 #47363124;
+}
+.button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #47363124;
+}
+.button-primary {
+  background: #fff1d8;
+  color: #684b43;
+}
+.scroll-hint {
+  font-size: 7px;
+  margin-top: 2.1rem;
+  opacity: 0.7;
+}
+.hero-sky {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.sun {
+  position: absolute;
+  width: 190px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f6cb71;
+  top: 14%;
+  right: 16%;
+  box-shadow:
+    0 0 0 14px #f6cb7133,
+    0 0 0 30px #f6cb711c;
+}
+.cloud {
+  position: absolute;
+  color: #fff1dc88;
+  font-size: 2.4rem;
+  letter-spacing: -0.5em;
+}
+.cloud-one {
+  left: 11%;
+  top: 27%;
+}
+.cloud-two {
+  right: 11%;
+  top: 43%;
+  font-size: 1.7rem;
+}
+.sparkle {
+  position: absolute;
+  color: #fff0da;
+  font-size: 1.6rem;
+}
+.sparkle-one {
+  top: 24%;
+  left: 28%;
+}
+.sparkle-two {
+  top: 48%;
+  right: 25%;
+}
+.hero-island {
+  position: absolute;
+  height: 105px;
+  width: 340px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--sage);
+  border-radius: 50% 50% 0 0/55% 55% 0 0;
+  border-top: 15px solid #b7c28b;
+}
+.hero-island:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 94px;
+  width: 150px;
+  height: 80px;
+  transform: translateX(-50%);
+  background: #ba8d67;
+  clip-path: polygon(0 0, 100% 0, 72% 100%, 27% 100%);
+}
+.hero-tree {
+  position: absolute;
+  top: -50px;
+  left: 24%;
+  color: #577354;
+  font-size: 4rem;
+  text-shadow: 4px 0 #6c825f;
+}
+.hero-flower {
+  position: absolute;
+  top: -25px;
+  right: 23%;
+  color: #ffe5a0;
+  font-size: 1.7rem;
+}
+.avatar {
+  position: absolute;
+  z-index: 3;
+  width: 64px;
+  height: 92px;
+  image-rendering: pixelated;
+}
+.avatar-hero {
+  left: calc(50% - 155px);
+  bottom: 72px;
+  transform: scale(1.13);
+}
+.avatar-hair {
+  position: absolute;
+  width: 36px;
+  height: 31px;
+  left: 13px;
+  top: 0;
+  border-radius: 45% 45% 20% 20%;
+  background: #493731;
+  box-shadow:
+    -5px 8px #493731,
+    5px 9px #493731,
+    0 -5px #493731;
+}
+.avatar-face {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 16px;
+  top: 11px;
+  border-radius: 7px;
+  background: #f0bb90;
+}
+.glasses,
+.glasses:before {
+  position: absolute;
+  top: 11px;
+  width: 11px;
+  height: 8px;
+  border: 2px solid #3f4545;
+  border-radius: 3px;
+}
+.glasses {
+  left: 2px;
+}
+.glasses:before {
+  content: "";
+  left: 11px;
+  top: -2px;
+}
+.glasses:after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 11px;
+  width: 5px;
+  border-top: 2px solid #3f4545;
+}
+.smile {
+  position: absolute;
+  width: 7px;
+  height: 3px;
+  border-bottom: 2px solid #a85853;
+  left: 12px;
+  top: 22px;
+}

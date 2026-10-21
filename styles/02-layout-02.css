@@ -1,0 +1,338 @@
+/* 02-layout-02.css: layout styles, continued in cascade order. */
+.flag {
+  top: 46px;
+  right: 20%;
+  color: #ffe4a2;
+  font-size: 1.5rem;
+}
+.tent {
+  bottom: 36px;
+  right: 25%;
+  color: #f7e5bd;
+  font-size: 3.5rem;
+  text-shadow: 3px 4px #a66855;
+}
+.river {
+  left: 21%;
+  bottom: 30px;
+  color: #d9e4ce;
+  font-size: 2rem;
+}
+.laptop {
+  bottom: 37px;
+  right: 25%;
+  color: #ffdc9b;
+  font-size: 3.8rem;
+  text-shadow: 0 4px #405f73;
+}
+.tower {
+  bottom: 34px;
+  left: 20%;
+  color: #f0d9ae;
+  font-size: 2.1rem;
+}
+.lighthouse {
+  bottom: 38px;
+  right: 24%;
+  color: #fff0d6;
+  font-size: 3.2rem;
+  text-shadow: 3px 3px #c87d61;
+}
+.mailbox {
+  bottom: 32px;
+  left: 22%;
+  color: #db7e71;
+  font-size: 1.75rem;
+}
+.island-three .island-scene:before,
+.island-four .island-scene:before {
+  content: none;
+}
+.flower-tabs a {
+  gap: 0.38rem;
+}
+.flower-tabs a:first-letter {
+  font-size: 1rem;
+}
+.flower-tabs a {
+  color: var(--blue);
+}
+.flower-tabs a span {
+  font-size: 0.76rem;
+}
+.memory-photo span {
+  color: inherit;
+}
+.memory-photo:nth-child(1) span {
+  color: #a95c49;
+}
+.memory-photo:nth-child(2) span {
+  color: #496d87;
+}
+.memory-photo:nth-child(3) span {
+  color: #9d7434;
+}
+@media (max-width: 700px) {
+  .topbar {
+    height: 58px;
+    padding-inline: 1rem;
+  }
+  .checkpoint-nav {
+    top: 0;
+    min-height: 54px;
+    padding-inline: 0.4rem;
+  }
+  .checkpoint-link {
+    padding: 0.3rem 0.42rem;
+  }
+  .checkpoint-link span:last-child {
+    display: none;
+  }
+  .checkpoint-link.is-active span:last-child {
+    display: inline;
+  }
+  .nav-dot {
+    width: 25px;
+    height: 25px;
+  }
+  .checkpoint {
+    min-height: unset;
+  }
+  .island-scene {
+    clip-path: none !important;
+  }
+  .cottage {
+    font-size: 2.8rem;
+    bottom: 25px;
+  }
+  .clubhouse {
+    bottom: 25px;
+  }
+  .tent,
+  .laptop,
+  .lighthouse {
+    bottom: 25px;
+  }
+}
+
+/* Softer cartoon portrait, using the reference's warm glasses and cheek details. */
+.avatar {
+  filter: drop-shadow(0 9px 3px #493c3930);
+}
+.avatar-hair {
+  width: 52px;
+  height: 43px;
+  left: 15px;
+  top: 1px;
+  border-radius: 42% 42% 35% 35%;
+  background: #4b2c22;
+  background-image:
+    radial-gradient(circle at 15% 30%, #603b2e 0 6px, transparent 6.5px),
+    radial-gradient(circle at 37% 9%, #603b2e 0 7px, transparent 7.5px),
+    radial-gradient(circle at 63% 8%, #603b2e 0 7px, transparent 7.5px),
+    radial-gradient(circle at 86% 30%, #603b2e 0 7px, transparent 7.5px);
+  box-shadow:
+    -8px 14px #4b2c22,
+    8px 14px #4b2c22,
+    -4px 25px #4b2c22,
+    5px 25px #4b2c22;
+}
+.avatar-face {
+  width: 42px;
+  height: 41px;
+  left: 20px;
+  top: 14px;
+  border-radius: 46% 46% 48% 48%;
+  background: #f2b68d;
+  box-shadow: inset 0 -3px #e8a77d;
+}
+.avatar .glasses,
+.avatar .glasses:before {
+  top: 13px;
+  width: 14px;
+  height: 12px;
+  border: 3px solid #d88969;
+  border-radius: 44%;
+  background: #f2b68d22;
+}
+.avatar .glasses {
+  left: 3px;
+}
+.avatar .glasses:before {
+  left: 14px;
+  top: -3px;
+}
+.avatar .glasses:after {
+  top: 16px;
+  left: 14px;
+  width: 5px;
+  border-top: 3px solid #d88969;
+}
+.avatar .eye {
+  top: 18px;
+  width: 4px;
+  height: 4px;
+  background: #49312f;
+}
+.avatar .eye-left {
+  left: 9px;
+}
+.avatar .eye-right {
+  right: 8px;
+}
+.avatar .blush {
+  top: 29px;
+  width: 8px;
+  height: 5px;
+  background: repeating-linear-gradient(110deg, #df7c87 0 2px, #e99598 2px 5px);
+}
+.avatar .blush-left {
+  left: 2px;
+}
+.avatar .blush-right {
+  right: 2px;
+}
+.avatar .smile {
+  top: 31px;
+  left: 18px;
+  width: 8px;
+  height: 5px;
+  border-bottom: 2.5px solid #633b32;
+}
+.avatar-neck {
+  top: 50px;
+  left: 34px;
+  width: 14px;
+  height: 13px;
+  border-radius: 0 0 7px 7px;
+  background: #e9aa80;
+}
+.avatar-body {
+  top: 57px;
+  left: 15px;
+  width: 49px;
+  height: 43px;
+  border-radius: 17px 17px 9px 9px;
+  background: #fff9f5;
+  box-shadow:
+    inset 0 -6px #e4d8d6,
+    0 5px #c8b9b5;
+}
+.avatar-body:before,
+.avatar-body:after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  width: 9px;
+  height: 25px;
+  background: #ef8656;
+  border-radius: 8px;
+}
+.avatar-body:before {
+  left: 7px;
+  transform: rotate(-10deg);
+}
+.avatar-body:after {
+  right: 7px;
+  transform: rotate(10deg);
+}
+.avatar-arm {
+  top: 68px;
+  left: 58px;
+  width: 12px;
+  height: 21px;
+  border-radius: 7px;
+  background: #f2b68d;
+}
+.avatar::before {
+  content: "hi!";
+  position: absolute;
+  z-index: 4;
+  top: -15px;
+  left: -33px;
+  padding: 3px 9px 4px;
+  background: #dc7088;
+  color: white;
+  border-radius: 12px;
+  font:
+    800 9px "Nunito",
+    sans-serif;
+  box-shadow: 0 2px #a84c67;
+}
+.avatar-shadow {
+  position: absolute;
+  z-index: -1;
+  width: 63px;
+  height: 10px;
+  bottom: 1px;
+  left: 9px;
+  border-radius: 50%;
+  background: #553a3a22;
+}
+
+/* A single painted backdrop now carries the sunset colors through every checkpoint. */
+main {
+  background: linear-gradient(
+    180deg,
+    #f6d4c4 0%,
+    #f7e2c9 24%,
+    #e9e5ce 46%,
+    #dce7d6 68%,
+    #d9e9e6 86%,
+    #f2e1cf 100%
+  );
+}
+:root[data-theme="dark"] main {
+  background: linear-gradient(
+    180deg,
+    #4b3d50 0%,
+    #504654 24%,
+    #414553 48%,
+    #34494c 73%,
+    #30444a 100%
+  );
+}
+.hero {
+  background: linear-gradient(180deg, #f2b5a6 0%, #f5c4aa 63%, #f6d4c4 100%);
+}
+:root[data-theme="dark"] .hero {
+  background: linear-gradient(180deg, #46374d 0%, #594858 62%, #4b3d50 100%);
+}
+.world {
+  isolation: isolate;
+  background: transparent;
+}
+.world::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 12% 8%, #fff8df88 0 3%, transparent 23%),
+    radial-gradient(ellipse at 86% 24%, #f8c7ad66 0 4%, transparent 23%),
+    radial-gradient(ellipse at 14% 48%, #f7f3dc99 0 5%, transparent 27%),
+    radial-gradient(ellipse at 90% 72%, #c5d9c488 0 5%, transparent 28%),
+    radial-gradient(circle, #ffffffaa 1px, transparent 1.8px);
+  background-size:
+    auto,
+    auto,
+    auto,
+    auto,
+    29px 31px;
+}
+:root[data-theme="dark"] .world::before {
+  opacity: 0.32;
+  background:
+    radial-gradient(ellipse at 12% 8%, #e3b5a766 0 3%, transparent 23%),
+    radial-gradient(ellipse at 86% 24%, #9e85ba55 0 4%, transparent 23%),
+    radial-gradient(ellipse at 14% 48%, #d6c79755 0 5%, transparent 27%),
+    radial-gradient(ellipse at 90% 72%, #9dc7b355 0 5%, transparent 28%),
+    radial-gradient(circle, #ffffffaa 1px, transparent 1.8px);
+  background-size:
+    auto,
+    auto,
+    auto,
+    auto,
+    29px 31px;
+}

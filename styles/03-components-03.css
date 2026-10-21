@@ -1,0 +1,338 @@
+/* 03-components-03.css: components styles, continued in cascade order. */
+.card-subtitle {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--yellow) 24%, var(--card));
+}
+.badge-shelf {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  margin: 0.9rem 0 1.05rem;
+  padding: 0.55rem 0.6rem;
+  width: max-content;
+  max-width: 100%;
+  background: #f7edcf;
+  border: 1px solid #dec88e;
+  border-radius: 8px;
+  box-shadow:
+    inset 0 -3px #e6d6aa,
+    2px 3px 0 #9e7d6744;
+}
+.badge-shelf span {
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 0.3rem;
+  border: 2px solid #79404f;
+  border-radius: 5px;
+  background: linear-gradient(145deg, #fff9e8, #f4e7bc);
+  box-shadow: 2px 2px 0 #8d4958;
+  font-size: 1.15rem;
+  image-rendering: pixelated;
+}
+.badge-shelf span:nth-child(2) {
+  background: linear-gradient(145deg, #f8dfde, #f4c4cb);
+  transform: translateY(-2px);
+}
+.badge-shelf span:nth-child(3) {
+  background: linear-gradient(145deg, #e5efd0, #c9dda7);
+}
+.badge-shelf span:nth-child(4) {
+  background: linear-gradient(145deg, #dceaf0, #bad5df);
+}
+.badge-shelf span:nth-child(5) {
+  background: linear-gradient(145deg, #f7dcad, #edbf7a);
+}
+:root[data-theme="dark"] .badge-shelf {
+  background: #46404a;
+  border-color: #776a63;
+  box-shadow:
+    inset 0 -3px #65575b,
+    2px 3px 0 #130f18;
+}
+:root[data-theme="dark"] .badge-shelf span {
+  background: #4f4650;
+  border-color: #c38a99;
+  box-shadow: 2px 2px 0 #18131d;
+}
+.code-badges span {
+  font: 800 0.8rem monospace;
+  color: #4f6c8a;
+}
+.code-badges span:nth-child(2) {
+  color: #aa6485;
+}
+.code-badges span:nth-child(3) {
+  color: #628769;
+}
+.code-badges span:nth-child(4) {
+  font-size: 0.65rem;
+}
+.placeholder-list > div {
+  border-radius: 9px 14px 9px 14px;
+  background: #fffcf4;
+  border-color: #ead5af;
+  box-shadow: 2px 3px 0 #e7d4b988;
+}
+:root[data-theme="dark"] .placeholder-list > div {
+  background: #34313e;
+  border-color: #5c5360;
+  box-shadow: 2px 3px 0 #15121c;
+}
+.memory-photo {
+  border: 2px solid #fffaf0;
+  outline: 1px dashed #b8816e;
+  outline-offset: -6px;
+  border-radius: 9px 14px 9px 14px;
+  box-shadow: 3px 4px 0 #9c775555;
+}
+.project-card {
+  border-radius: 8px 14px 8px 14px;
+  box-shadow: 2px 3px 0 #b9a9b366;
+}
+.flower-garden {
+  border: 1px solid #d5b48b;
+  box-shadow: inset 0 0 0 4px #fff7df66;
+}
+:root[data-theme="dark"] .flower-garden {
+  border-color: #806978;
+}
+@media (max-width: 760px) {
+  .checkpoint {
+    border-radius: 30% 12% 25% 8% / 3% 3% 4% 3%;
+    padding-inline: 0.35rem;
+  }
+  .checkpoint-card,
+  #checkpoint-2 .checkpoint-card {
+    padding: 1.35rem 1rem 1.25rem 1.35rem;
+    background-size:
+      14px 56px,
+      100% 100%,
+      100% 100%;
+  }
+  .badge-shelf {
+    gap: 0.42rem;
+    padding: 0.45rem;
+    margin: 0.75rem 0 0.9rem;
+  }
+  .badge-shelf span {
+    min-width: 31px;
+    height: 31px;
+    font-size: 1.05rem;
+  }
+}
+
+/* Each checkpoint has a subtle code-editor grid, while the island trail links them. */
+.checkpoint {
+  overflow: visible;
+}
+.checkpoint::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.48;
+  background-image:
+    linear-gradient(to right, #557a9520 1px, transparent 1px),
+    linear-gradient(to bottom, #557a9520 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 13%,
+    #000 87%,
+    transparent 100%
+  );
+}
+:root[data-theme="dark"] .checkpoint::before {
+  opacity: 0.33;
+  background-image:
+    linear-gradient(to right, #b5d6e522 1px, transparent 1px),
+    linear-gradient(to bottom, #b5d6e522 1px, transparent 1px);
+}
+.pathway {
+  display: block;
+  z-index: 1;
+  left: 50%;
+  top: 1%;
+  bottom: 1%;
+  width: 160px;
+  opacity: 0.72;
+  transform: translateX(-50%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 600' preserveAspectRatio='none'%3E%3Cpath d='M80 0 C18 70 145 130 82 205 S20 315 78 390 S142 510 78 600' fill='none' stroke='%23bd8a69' stroke-width='5' stroke-dasharray='8 12' stroke-linecap='round'/%3E%3C/svg%3E")
+    center/100% 100% no-repeat;
+}
+.path-dash {
+  display: block;
+  background: #f6cb71;
+  box-shadow: 0 0 0 3px #fff0daaa;
+}
+.checkpoint-card {
+  z-index: 2;
+  border-radius: 18px 24px 18px 24px;
+  border: 1px solid color-mix(in srgb, var(--line) 80%, var(--orange));
+  background-image:
+    repeating-linear-gradient(180deg, transparent 0 43px, #8c9f7510 44px 45px),
+    linear-gradient(145deg, #fffefa, #fff8ef);
+  background-size:
+    100% 100%,
+    100% 100%;
+  background-repeat: no-repeat;
+  box-shadow:
+    0 10px 0 -4px #deaaa066,
+    0 18px 32px #71594b1a;
+}
+:root[data-theme="dark"] .checkpoint-card {
+  background-image:
+    repeating-linear-gradient(180deg, transparent 0 43px, #a7b88912 44px 45px),
+    linear-gradient(145deg, #302d3b, #2a2835);
+}
+.checkpoint-card::before,
+.checkpoint-card::after {
+  content: none;
+}
+.card-kicker {
+  border-radius: 6px;
+  box-shadow: none;
+}
+.island-scene {
+  z-index: 2;
+}
+@media (max-width: 760px) {
+  .pathway {
+    left: 24px;
+    width: 78px;
+    opacity: 0.36;
+  }
+  .path-dash {
+    display: none;
+  }
+  .checkpoint {
+    overflow: visible;
+  }
+  .checkpoint-card {
+    background-size:
+      100% 100%,
+      100% 100%;
+  }
+}
+
+/* Final layout overrides: a visible grid and an island-to-island trail in open gutters. */
+.checkpoint {
+  justify-content: space-between;
+  gap: 0;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+.island-scene {
+  width: 32%;
+  max-width: 320px;
+  z-index: 2;
+}
+.checkpoint-card,
+#checkpoint-2 .checkpoint-card {
+  width: 42%;
+  z-index: 2;
+  border: 2px solid #e5a1a4;
+  border-radius: 15px 22px 15px 22px;
+  padding: clamp(1.45rem, 3vw, 2.3rem);
+  background-image:
+    repeating-linear-gradient(180deg, transparent 0 43px, #8c9f7510 44px 45px),
+    linear-gradient(145deg, #fffefa, #fff8ef);
+  background-size:
+    100% 100%,
+    100% 100%;
+  background-repeat: no-repeat;
+  box-shadow:
+    5px 6px 0 #dfa9a766,
+    0 17px 30px #71594b20;
+}
+.island-one .checkpoint-card {
+  --card-accent: #99aa78;
+  border-top: 7px solid #99aa78;
+}
+.island-two .checkpoint-card {
+  --card-accent: #78a09a;
+  border-top: 7px solid #78a09a;
+}
+.island-three .checkpoint-card {
+  --card-accent: #d19876;
+  border-top: 7px solid #d19876;
+}
+.island-four .checkpoint-card {
+  --card-accent: #7897aa;
+  border-top: 7px solid #7897aa;
+}
+.island-five .checkpoint-card {
+  --card-accent: #a184a0;
+  border-top: 7px solid #a184a0;
+}
+.checkpoint-card::before {
+  content: none;
+}
+.checkpoint-card::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: -2px;
+  right: -2px;
+  width: 27px;
+  height: 27px;
+  border-radius: 0 16px 0 7px;
+  background: linear-gradient(
+    225deg,
+    var(--card-accent) 0 48%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+.card-kicker {
+  border: 0;
+  border-radius: 4px;
+  box-shadow: inset 0 -2px #e2b77d;
+  background: #fff0da;
+  padding: 0.38rem 0.55rem 0.46rem;
+}
+.checkpoint::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.68;
+  background-image:
+    linear-gradient(to right, #557a9548 1px, transparent 1px),
+    linear-gradient(to bottom, #557a9548 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+:root[data-theme="dark"] .checkpoint::before {
+  opacity: 0.55;
+  background-image:
+    linear-gradient(to right, #b5d6e550 1px, transparent 1px),
+    linear-gradient(to bottom, #b5d6e550 1px, transparent 1px);
+}
+:root[data-theme="dark"] .checkpoint-card {
+  background-image:
+    repeating-linear-gradient(180deg, transparent 0 43px, #a7b88914 44px 45px),
+    linear-gradient(145deg, #302d3b, #2a2835);
+  border-color: #9c6f7d;
+  box-shadow:
+    5px 6px 0 #674d5b88,
+    0 17px 30px #11101955;
+}
+:root[data-theme="dark"] .card-kicker {
+  background: #493842;
+  box-shadow: inset 0 -2px #8f6571;
+}
